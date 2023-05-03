@@ -1,0 +1,14 @@
+<>
+    {alertVisible && (
+        <Alert onClose={() => setAlertVisibility(false)}>Alert!!</Alert>
+    )}
+    <Button
+        type='primary'
+        text='button!!!'
+        onClick={() => {
+            // navigator.clipboard.writeText("test-031")}}
+            setAlertVisibility(true)
+        }}
+    />
+    <BlockScope />
+</>

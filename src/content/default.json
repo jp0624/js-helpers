@@ -1,0 +1,35 @@
+[
+	{
+		"title": "Operators",
+		"type": "JavaScript",
+		"folder": "operators",
+		"keywords": [
+			"operators",
+			"equality",
+			"equal",
+			"unary",
+			"logical",
+			"relational",
+			"conditional",
+			"assignment",
+			"precedence"
+		]
+	},
+	{
+		"title": "Functions and Scope",
+		"type": "JavaScript",
+		"folder": "functions",
+		"keywords": [
+			"functions",
+			"scope",
+			"iife's",
+			"closures",
+			"this",
+			"call",
+			"apply",
+			"bind",
+			"arrow",
+			"default"
+		]
+	}
+]

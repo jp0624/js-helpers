@@ -1,0 +1,14 @@
+[
+	{
+		"title": "Function Scope",
+		"folder": "function_scope",
+		"component": "FunctionScope",
+		"keywords": ["operators", "equality", "equal"]
+	},
+	{
+		"title": "Block Scope",
+		"folder": "block_scope",
+		"component": "BlockScope",
+		"keywords": ["operators", "unary"]
+	}
+]

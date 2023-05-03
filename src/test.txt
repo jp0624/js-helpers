@@ -1,0 +1,14 @@
+
+<Button
+    type='primary'
+    text='button!!!'
+    onClick={() => {
+        // navigator.clipboard.writeText("test-031")}}
+        setAlertVisibility(true)
+    }}
+/>
+<Editor
+    height='90vh'
+    defaultLanguage='javascript'
+    defaultValue={FileImporter("./src/test.txt")}
+/>
