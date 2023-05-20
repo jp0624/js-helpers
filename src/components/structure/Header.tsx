@@ -1,5 +1,6 @@
 import { useContext } from "react"
-import { SiteContext } from "../context/SiteContext"
+import { SiteContext } from "../../context/SiteContext"
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
 	const {
@@ -10,7 +11,9 @@ const Header = () => {
 	} = useContext(SiteContext)
 	return (
 		<header>
-			<button
+			<NavLink
+				to='/'
+				className={"main-logo"}
 				onClick={() => {
 					setActiveComponent({
 						title: "Home Page",
@@ -19,7 +22,7 @@ const Header = () => {
 					setActiveCategory({
 						folder: "",
 						title: "",
-						type: "",
+						section: "",
 					})
 					setActiveModule({
 						folder: "",
@@ -27,8 +30,8 @@ const Header = () => {
 					})
 				}}
 			>
-				Home
-			</button>
+				JS Helpers
+			</NavLink>
 		</header>
 	)
 }

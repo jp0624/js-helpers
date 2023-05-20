@@ -1,16 +1,21 @@
-import { useState } from "react"
-
+import { useContext } from "react"
 import Editor from "@monaco-editor/react"
-import FileImporter from "../../../helpers/FileImporter"
+import FileImporter from "../../../../../helpers/FileImporter"
+import { SiteContext } from "../../../../../context/SiteContext"
 
-function BlockScope() {
-	const [alertVisible, setAlertVisibility] = useState(false)
+function Default() {
+	const { currentHost } = useContext(SiteContext)
 	let loadedData: any = {
-		code01: FileImporter("./src/content/functions/block_scope/code_01.txt"),
-		code02: FileImporter("./src/content/functions/block_scope/code_02.txt"),
+		code01: FileImporter(
+			`${currentHost}/src/content/sections/fundamentals/functions/block_scope/code_01.txt`
+		),
+		code02: FileImporter(
+			`${currentHost}/src/content/sections/fundamentals/functions/block_scope/code_02.txt`
+		),
 	}
 	return (
 		<>
+			<h2>Current Pathname</h2>
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
@@ -55,4 +60,4 @@ function BlockScope() {
 	)
 }
 
-export default BlockScope
+export default Default

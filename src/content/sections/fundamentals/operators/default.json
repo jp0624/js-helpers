@@ -1,14 +1,14 @@
 [
 	{
 		"title": "Function Scope",
-		"folder": "function_scope",
-		"component": "FunctionScope",
+		"folder": "op_function_scope",
+		"component": "OPFunctionScope",
 		"keywords": ["operators", "equality", "equal"]
 	},
 	{
 		"title": "Block Scope",
-		"folder": "block_scope",
-		"component": "BlockScope",
+		"folder": "op_block_scope",
+		"component": "OPBlockScope",
 		"keywords": ["operators", "unary"]
 	}
 ]

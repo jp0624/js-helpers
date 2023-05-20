@@ -1,6 +1,8 @@
 import NavModule from "../NavModule/NavModule"
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
+import styles from "./styles.module.scss"
+import { NavLink } from "react-router-dom"
 
 const NavCategory = ({ category }: any) => {
 	const {
@@ -10,15 +12,15 @@ const NavCategory = ({ category }: any) => {
 		setActiveModule,
 	} = useContext(SiteContext)
 
-	console.log("category: ", category)
 	return (
 		<>
 			<li
-				className={
-					category.title === activeCategory.title ? "active" : ""
-				}
+				className={`
+					${styles.category__list}
+					${category.title === activeCategory.title ? styles.active : ""}
+					`}
 			>
-				<h3
+				<NavLink
 					onClick={() => {
 						setActiveCategory(category)
 						setActiveComponent({
@@ -30,11 +32,12 @@ const NavCategory = ({ category }: any) => {
 							title: "",
 						})
 					}}
+					to={`cat/${category.folder}`}
 				>
 					{category.title === activeCategory.title && "*"}
 					{category.title}
-				</h3>
-				<ul className={"subNav"}>
+				</NavLink>
+				<ul className={styles.module__list}>
 					{category.modules.map((module: any, index: number) => (
 						<NavModule
 							module={module}

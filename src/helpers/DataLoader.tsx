@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { SiteContext } from "../context/SiteContext"
 import GetCategories from "./GetCategories"
 

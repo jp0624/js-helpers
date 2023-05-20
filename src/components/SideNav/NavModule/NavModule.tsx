@@ -1,5 +1,7 @@
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
+import styles from "./styles.module.scss"
+import { NavLink } from "react-router-dom"
 
 const NavModule = ({ module, category }: any) => {
 	const {
@@ -12,11 +14,11 @@ const NavModule = ({ module, category }: any) => {
 	// console.log("module", module)
 	return (
 		<>
-			<li
+			<NavLink
 				className={
 					module.title === activeModule.title &&
 					category.title === activeCategory.title
-						? "active"
+						? styles.active
 						: ""
 				}
 				onClick={() => {
@@ -27,12 +29,13 @@ const NavModule = ({ module, category }: any) => {
 					})
 					setActiveModule(module)
 				}}
+				to={`cat/${category.folder}/mod/${module.folder}`}
 			>
 				{module.title === activeModule.title &&
 					category.title === activeCategory.title &&
 					"*"}
 				{module.title}
-			</li>
+			</NavLink>
 		</>
 	)
 }

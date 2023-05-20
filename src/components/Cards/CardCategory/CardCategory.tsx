@@ -24,9 +24,13 @@ const CardCategory = ({ category }: any) => {
 					>
 						<h5 className='card-title'>{category.title}</h5>
 					</div>
+					<p>{category.description}</p>
 					<div className='row'>
 						{category.modules?.map((module: any, index: number) => (
-							<div className='col-sm-4 mb-6 mb-sm-0'>
+							<div
+								className='col-sm-4 mb-6 mb-sm-0'
+								key={module.title + index}
+							>
 								<CardModule
 									category={category}
 									module={module}

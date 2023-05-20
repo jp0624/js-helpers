@@ -1,5 +1,6 @@
-import { useState, useEffect, SetStateAction } from "react"
-
+import { useState, useEffect } from "react"
+import { useContext } from "react"
+import { SiteContext } from "../context/SiteContext"
 interface Category {
 	folder: string
 	modules: any[]
@@ -18,6 +19,8 @@ async function fetchFile(url: string) {
 function GetCategories(): Promise<Category[]> {
 	const [categories, setCategories] = useState<Category[]>([])
 
+	const { currentHost } = useContext(SiteContext)
+
 	useEffect(() => {
 		async function buildCategories(url: string) {
 			try {
@@ -25,7 +28,7 @@ function GetCategories(): Promise<Category[]> {
 				if (cats) {
 					const promises = cats.map(async (category: Category) => {
 						const result = await fetchFile(
-							`./src/content/${category.folder}/default.json`
+							`${currentHost}/src/content/sections/fundamentals/${category.folder}/default.json`
 						)
 						category.modules = result
 						return category
@@ -38,7 +41,9 @@ function GetCategories(): Promise<Category[]> {
 			}
 		}
 
-		buildCategories(`./src/content/default.json`).then(function (result) {
+		buildCategories(
+			`${currentHost}/src/content/sections/fundamentals/default.json`
+		).then(function (result) {
 			setCategories(result as any)
 		})
 	}, [])

@@ -1,14 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import SideNav from "./components/SideNav/SideNav"
-import Content from "./components/Content"
+import Content from "./components/structure/Content/Content"
 import { SiteProvider } from "./context/SiteContext"
-import { useContext, useState, useEffect } from "react"
-import { SiteContext } from "./context/SiteContext"
-import GetCategories from "./helpers/GetCategories"
 import "./App.scss"
 import DataLoader from "./helpers/DataLoader"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import Header from "./components/structure/Header"
+import Footer from "./components/structure/Footer"
 
 function App() {
 	return (
@@ -20,6 +17,15 @@ function App() {
 					<SideNav />
 					<Routes>
 						<Route path='/' element={<Content />} />
+						<Route
+							path='/cat/:categoryName'
+							element={<Content />}
+						/>
+						<Route
+							path='/cat/:categoryName/mod/:moduleName'
+							element={<Content />}
+						/>
+						<Route path='*' element={<Content />} />
 					</Routes>
 				</section>
 				<Footer />

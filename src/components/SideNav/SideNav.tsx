@@ -4,18 +4,13 @@ import styles from "./styles.module.scss"
 import NavCategory from "./NavCategory/NavCategory"
 
 const SideNav = () => {
-	const {
-		categories,
-		setActiveCategory,
-		setActiveModule,
-		setActiveComponent,
-	} = useContext(SiteContext)
+	const { categories } = useContext(SiteContext)
 
 	if (categories.length > 0) {
 		return (
 			<>
-				<aside className='sideNav'>
-					<ul>
+				<aside className={styles.sideNav}>
+					<ul className={styles.sideNav__category}>
 						{categories.map((category: any, index: number) => (
 							<NavCategory category={category} key={index} />
 						))}

@@ -1,4 +1,5 @@
 import { createContext, useState, ReactNode } from "react"
+export const currentHost = `${window.location.protocol}//${window.location.hostname}:5173`
 
 interface moduleInterface extends Object {
 	component?: string
@@ -12,6 +13,7 @@ interface CategoryInterface extends Object {
 	modules?: moduleInterface[]
 	title: string
 	type: string
+	description?: string
 }
 interface ComponentInterface extends Object {
 	component?: string
@@ -19,11 +21,12 @@ interface ComponentInterface extends Object {
 }
 
 type SiteContextProps = {
-	categories: object[]
+	categories: CategoryInterface[]
 	activeCategory: CategoryInterface
 	activeComponent: ComponentInterface
 	activeModule: moduleInterface
 	language: string
+	currentHost: string
 	setCategories: (categories: any) => void
 	setActiveCategory: (category: any) => void
 	setActiveComponent: (component: any) => void
@@ -37,6 +40,7 @@ export const SiteContext = createContext<SiteContextProps>({
 	activeComponent: { component: "", title: "" },
 	activeModule: { folder: "", title: "" },
 	language: "",
+	currentHost: currentHost,
 	setCategories: () => {},
 	setActiveCategory: () => {},
 	setActiveComponent: () => {},
@@ -74,6 +78,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				activeComponent,
 				activeModule,
 				language,
+				currentHost,
 				setCategories,
 				setActiveCategory,
 				setActiveComponent,

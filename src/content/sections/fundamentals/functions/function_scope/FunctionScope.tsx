@@ -1,10 +1,18 @@
-import { useState } from "react"
-
+import { useContext } from "react"
 import Editor from "@monaco-editor/react"
-import FileImporter from "../../../helpers/FileImporter"
+import FileImporter from "../../../../../helpers/FileImporter"
+import { SiteContext } from "../../../../../context/SiteContext"
 
-function FunctionScope() {
-	const [alertVisible, setAlertVisibility] = useState(false)
+function Default() {
+	const { currentHost } = useContext(SiteContext)
+	let loadedData: any = {
+		code01: FileImporter(
+			`${currentHost}/src/content/sections/fundamentals/functions/function_scope/code_01.txt`
+		),
+		code02: FileImporter(
+			`${currentHost}/src/content/sections/fundamentals/functions/function_scope/code_02.txt`
+		),
+	}
 	return (
 		<>
 			<p>
@@ -19,14 +27,14 @@ function FunctionScope() {
 				publishing software like Aldus PageMaker including versions of
 				Lorem Ipsum.
 			</p>
-			<Editor
-				key='1'
-				height='250px'
-				defaultLanguage='text'
-				defaultValue={FileImporter(
-					"./src/content/functions/block_scope/code_01.txt"
-				)}
-			/>
+			{loadedData.code01 ? (
+				<Editor
+					key='1'
+					height='250px'
+					defaultLanguage='text'
+					defaultValue={loadedData.code01}
+				/>
+			) : null}
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
@@ -39,16 +47,16 @@ function FunctionScope() {
 				publishing software like Aldus PageMaker including versions of
 				Lorem Ipsum.
 			</p>
-			<Editor
-				key='2'
-				height='250px'
-				defaultLanguage='text'
-				defaultValue={FileImporter(
-					"./src/content/functions/block_scope/code_02.txt"
-				)}
-			/>
+			{loadedData.code02 ? (
+				<Editor
+					key='2'
+					height='250px'
+					defaultLanguage='text'
+					defaultValue={loadedData.code02}
+				/>
+			) : null}
 		</>
 	)
 }
 
-export default FunctionScope
+export default Default
