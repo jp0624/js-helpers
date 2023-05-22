@@ -15,12 +15,14 @@ const NavModule = ({ module, category }: any) => {
 	return (
 		<>
 			<NavLink
-				className={
-					module.title === activeModule.title &&
-					category.title === activeCategory.title
-						? styles.active
-						: ""
-				}
+				className={`
+					${styles.navModule},
+					${
+						module.title === activeModule.title &&
+						category.title === activeCategory.title
+							? styles.active
+							: ""
+					}`}
 				onClick={() => {
 					setActiveCategory(category)
 					setActiveComponent({

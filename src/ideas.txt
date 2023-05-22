@@ -1,0 +1,2 @@
+ auto-execution functions (or self-executing, self-running, whatever).
+https://stackoverflow.com/questions/592396/what-is-the-purpose-of-a-self-executing-function-in-javascript

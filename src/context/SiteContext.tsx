@@ -20,32 +20,40 @@ interface ComponentInterface extends Object {
 	title?: string
 }
 
+interface ParamsInterface {
+	[key: string]: string
+}
+
 type SiteContextProps = {
 	categories: CategoryInterface[]
 	activeCategory: CategoryInterface
 	activeComponent: ComponentInterface
 	activeModule: moduleInterface
-	language: string
 	currentHost: string
-	setCategories: (categories: any) => void
+	language: string
+	params: ParamsInterface
 	setActiveCategory: (category: any) => void
 	setActiveComponent: (component: any) => void
 	setActiveModule: (module: any) => void
+	setCategories: (categories: any) => void
 	setLanguage: (language: string) => void
+	setParams: (params: any) => void
 }
 
 export const SiteContext = createContext<SiteContextProps>({
-	categories: [],
 	activeCategory: { folder: "", title: "", type: "" },
 	activeComponent: { component: "", title: "" },
 	activeModule: { folder: "", title: "" },
-	language: "",
 	currentHost: currentHost,
-	setCategories: () => {},
+	categories: [],
+	language: "",
+	params: {},
 	setActiveCategory: () => {},
 	setActiveComponent: () => {},
 	setActiveModule: () => {},
+	setCategories: () => {},
 	setLanguage: () => {},
+	setParams: () => {},
 })
 
 type SiteProviderProps = {
@@ -53,7 +61,6 @@ type SiteProviderProps = {
 }
 
 export const SiteProvider = ({ children }: SiteProviderProps) => {
-	const [categories, setCategories] = useState([])
 	const [activeCategory, setActiveCategory] = useState({
 		folder: "",
 		title: "",
@@ -68,22 +75,26 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 		folder: "",
 		title: "",
 	})
+	const [categories, setCategories] = useState([])
 	const [language, setLanguage] = useState("")
+	const [params, setParams] = useState({})
 
 	return (
 		<SiteContext.Provider
 			value={{
-				categories,
 				activeCategory,
 				activeComponent,
 				activeModule,
-				language,
+				categories,
 				currentHost,
-				setCategories,
+				language,
+				params,
 				setActiveCategory,
 				setActiveComponent,
 				setActiveModule,
+				setCategories,
 				setLanguage,
+				setParams,
 			}}
 		>
 			{children}

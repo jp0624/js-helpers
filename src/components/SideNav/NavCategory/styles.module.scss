@@ -1,5 +1,4 @@
 .category__list {
-	overflow: hidden;
 	& > a {
 		display: block;
 		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
@@ -22,19 +21,17 @@
 		& > .module__list {
 			a {
 				height: 2rem;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 1px solid #aaa;
 			}
 		}
 	}
 	.module__list {
 		a {
+			cursor: pointer;
 			color: #666;
-			overflow: hidden;
 			height: 0.0001rem;
 			display: block;
-			cursor: pointer;
 			border-bottom: none;
-			border-color: #eee;
 			transition: all ease-in-out 250ms;
 			display: flex;
 			align-items: center;

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
 import CardModule from "../CardModule/CardModule"
+import { NavLink } from "react-router-dom"
 
 const CardCategory = ({ category }: any) => {
 	const { setActiveCategory, setActiveComponent, setActiveModule } =
@@ -9,7 +10,9 @@ const CardCategory = ({ category }: any) => {
 		<>
 			<div className='card card-category'>
 				<div className='card-body'>
-					<div
+					<NavLink
+						to={`/cat/${category.folder}/}`}
+						className={`card-heading`}
 						onClick={() => {
 							setActiveCategory(category)
 							setActiveComponent({
@@ -23,22 +26,17 @@ const CardCategory = ({ category }: any) => {
 						}}
 					>
 						<h5 className='card-title'>{category.title}</h5>
-					</div>
-					<p>{category.description}</p>
-					<div className='row'>
-						{category.modules?.map((module: any, index: number) => (
-							<div
-								className='col-sm-4 mb-6 mb-sm-0'
-								key={module.title + index}
-							>
-								<CardModule
-									category={category}
-									module={module}
-									key={index}
-								/>
-							</div>
-						))}
-					</div>
+					</NavLink>
+				</div>
+				<p>{category.description}</p>
+				<div className='row'>
+					{category.modules?.map((module: any, index: number) => (
+						<CardModule
+							category={category}
+							module={module}
+							key={index}
+						/>
+					))}
 				</div>
 			</div>
 		</>

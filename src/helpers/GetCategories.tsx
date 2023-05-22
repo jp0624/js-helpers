@@ -18,7 +18,6 @@ async function fetchFile(url: string) {
 
 function GetCategories(): Promise<Category[]> {
 	const [categories, setCategories] = useState<Category[]>([])
-
 	const { currentHost } = useContext(SiteContext)
 
 	useEffect(() => {

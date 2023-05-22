@@ -7,15 +7,13 @@ const CategoryPage = () => {
 
 	return (
 		<>
-			<div className='row'>
+			<div className='row row-category'>
 				{activeCategory.modules?.map((module: any, index: number) => (
-					<div className='col-sm-4 mb-6 mb-sm-0' key={Math.random()}>
-						<CardModule
-							module={module}
-							key={index}
-							category={activeCategory}
-						/>
-					</div>
+					<CardModule
+						module={module}
+						key={index}
+						category={activeCategory}
+					/>
 				))}
 			</div>
 		</>
