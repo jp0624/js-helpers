@@ -1,23 +1,27 @@
 import React, { useState, useEffect, useContext } from "react"
 import { SiteContext } from "../context/SiteContext"
 
+// Interface for a section
 interface Section {
 	title: string
 	folder: string
 	categories: Category[]
 }
 
+// Interface for a category
 interface Category {
 	title: string
 	folder: string
 	modules: Module[]
 }
 
+// Interface for a module
 interface Module {
 	title: string
 	folder: string
 }
 
+// Function to fetch a file from a given URL
 const fetchFile = async (url: string) => {
 	try {
 		const response = await fetch(url)
@@ -29,11 +33,13 @@ const fetchFile = async (url: string) => {
 	}
 }
 
+// Function to fetch and parse a file from a given URL
 const fetchAndParseFile = async (url: string) => {
 	const content = await fetchFile(url)
 	return content ?? []
 }
 
+// Function to add an error suffix to a category's title
 const addErrorSuffixToCategory = (category: Category, error: any): Category => {
 	return {
 		...category,
@@ -41,6 +47,7 @@ const addErrorSuffixToCategory = (category: Category, error: any): Category => {
 	}
 }
 
+// Function to fetch the modules for a category
 const fetchCategoryModules = async (
 	currentHost: string,
 	sectionFolder: string,
@@ -51,6 +58,7 @@ const fetchCategoryModules = async (
 	return modules ?? []
 }
 
+// Function to fetch the categories for a section
 const fetchSectionCategories = async (
 	currentHost: string,
 	section: Section
@@ -85,6 +93,7 @@ const fetchSectionCategories = async (
 	return []
 }
 
+// Function to fetch the site data
 const fetchSiteData = async (
 	currentHost: string,
 	setSiteData: React.Dispatch<React.SetStateAction<Category[]>>,
@@ -115,10 +124,12 @@ const fetchSiteData = async (
 	}
 }
 
+// Function to add an error suffix to a title
 const addErrorSuffix = (title: string, error: any): string => {
 	return error ? `${title}X` : title
 }
 
+// Component to get the site data
 const GetSiteData = (): Promise<Category[]> => {
 	const [siteData, setSiteData] = useState<Category[]>([])
 	const [error, setError] = useState<string | null>(null)

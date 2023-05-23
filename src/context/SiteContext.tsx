@@ -1,34 +1,43 @@
 import { createContext, useState, ReactNode } from "react"
+
+// Get the current host URL
 export const currentHost = `${window.location.protocol}//${window.location.hostname}:5173`
 
-interface moduleInterface extends Object {
+// Interface for a module
+interface ModuleInterface {
 	component?: string
 	folder: string
 	keywords?: string[]
 	title: string
 }
-interface CategoryInterface extends Object {
+
+// Interface for a category
+interface CategoryInterface {
 	folder: string
 	keywords?: string[]
-	modules?: moduleInterface[]
+	modules?: ModuleInterface[]
 	title: string
 	type: string
 	description?: string
 }
-interface ComponentInterface extends Object {
+
+// Interface for a component
+interface ComponentInterface {
 	component?: string
 	title?: string
 }
 
+// Interface for route parameters
 interface ParamsInterface {
 	[key: string]: string
 }
 
+// Props for the SiteContext
 type SiteContextProps = {
 	categories: CategoryInterface[]
 	activeCategory: CategoryInterface
 	activeComponent: ComponentInterface
-	activeModule: moduleInterface
+	activeModule: ModuleInterface
 	currentHost: string
 	language: string
 	params: ParamsInterface
@@ -42,6 +51,7 @@ type SiteContextProps = {
 	setSiteData: (siteData: any) => void
 }
 
+// Create the SiteContext and provide initial values
 export const SiteContext = createContext<SiteContextProps>({
 	activeCategory: { folder: "", title: "", type: "" },
 	activeComponent: { component: "", title: "" },
@@ -60,29 +70,32 @@ export const SiteContext = createContext<SiteContextProps>({
 	setSiteData: () => {},
 })
 
+// Props for the SiteProvider component
 type SiteProviderProps = {
 	children: ReactNode
 }
 
+// SiteProvider component that wraps the children components with the SiteContext
 export const SiteProvider = ({ children }: SiteProviderProps) => {
-	const [activeCategory, setActiveCategory] = useState({
+	// Define state variables and their setters using useState hook
+	const [activeCategory, setActiveCategory] = useState<CategoryInterface>({
 		folder: "",
 		title: "",
 		type: "",
 	})
-	const [activeComponent, setActiveComponent] = useState({
+	const [activeComponent, setActiveComponent] = useState<ComponentInterface>({
 		component: "",
 		title: "",
 	})
-	const [activeModule, setActiveModule] = useState({
+	const [activeModule, setActiveModule] = useState<ModuleInterface>({
 		component: "",
 		folder: "",
 		title: "",
 	})
-	const [categories, setCategories] = useState([])
+	const [categories, setCategories] = useState<CategoryInterface[]>([])
 	const [language, setLanguage] = useState("")
-	const [params, setParams] = useState({})
-	const [siteData, setSiteData] = useState([])
+	const [params, setParams] = useState<ParamsInterface>({})
+	const [siteData, setSiteData] = useState<any>([])
 
 	return (
 		<SiteContext.Provider
