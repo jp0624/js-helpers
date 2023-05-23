@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react"
-import { useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { SiteContext } from "../context/SiteContext"
 
 interface Section {
@@ -19,7 +18,7 @@ interface Module {
 	folder: string
 }
 
-async function fetchFile(url: string) {
+const fetchFile = async (url: string) => {
 	try {
 		const response = await fetch(url)
 		const content = await response.text()
@@ -30,17 +29,17 @@ async function fetchFile(url: string) {
 	}
 }
 
-function addErrorSuffix(title: string, error: any): string {
+const addErrorSuffix = (title: string, error: any): string => {
 	return error ? `${title}X` : title
 }
 
-function GetSiteData(): Promise<Category[]> {
+const GetSiteData = async (): Promise<Category[]> => {
 	const [siteData, setSiteData] = useState<Category[]>([])
 	const [error, setError] = useState<string | null>(null)
 	const { currentHost } = useContext(SiteContext)
 
 	useEffect(() => {
-		async function buildSections(url: string) {
+		const buildSections = async (url: string) => {
 			try {
 				const secs = await fetchFile(url)
 				if (secs) {
@@ -48,7 +47,7 @@ function GetSiteData(): Promise<Category[]> {
 						const cats = await fetchFile(
 							`${currentHost}/src/content/sections/${section.folder}/default.json`
 						)
-						section.categories = cats || [] // Set categories to an empty array if cats is null
+						section.categories = cats ?? []
 						if (cats) {
 							const categoryPromises = cats.map(
 								async (category: Category) => {
@@ -56,11 +55,7 @@ function GetSiteData(): Promise<Category[]> {
 										const mods = await fetchFile(
 											`${currentHost}/src/content/sections/${section.folder}/${category.folder}/default.json`
 										)
-										if (mods) {
-											category.modules = mods
-										} else {
-											category.modules = []
-										}
+										category.modules = mods ?? []
 										return {
 											...category,
 											title: addErrorSuffix(
