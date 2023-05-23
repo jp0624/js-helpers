@@ -29,76 +29,103 @@ const fetchFile = async (url: string) => {
 	}
 }
 
+const fetchAndParseFile = async (url: string) => {
+	const content = await fetchFile(url)
+	return content ?? []
+}
+
+const addErrorSuffixToCategory = (category: Category, error: any): Category => {
+	return {
+		...category,
+		title: addErrorSuffix(category.title, error),
+	}
+}
+
+const fetchCategoryModules = async (
+	currentHost: string,
+	sectionFolder: string,
+	categoryFolder: string
+): Promise<Module[]> => {
+	const url = `${currentHost}/src/content/sections/${sectionFolder}/${categoryFolder}/default.json`
+	const modules = await fetchAndParseFile(url)
+	return modules ?? []
+}
+
+const fetchSectionCategories = async (
+	currentHost: string,
+	section: Section
+): Promise<Category[]> => {
+	const url = `${currentHost}/src/content/sections/${section.folder}/default.json`
+	const categories = await fetchAndParseFile(url)
+
+	if (categories) {
+		const categoryPromises = categories.map(async (category: Category) => {
+			try {
+				const modules = await fetchCategoryModules(
+					currentHost,
+					section.folder,
+					category.folder
+				)
+				category.modules = modules
+				return addErrorSuffixToCategory(category, null)
+			} catch (error) {
+				console.error(
+					`Error fetching modules for category: ${category.title}`,
+					error
+				)
+				return addErrorSuffixToCategory(category, error)
+			}
+		})
+
+		return (await Promise.all(categoryPromises)).filter(
+			(category) => category !== null
+		) as Category[]
+	}
+
+	return []
+}
+
+const fetchSiteData = async (
+	currentHost: string,
+	setSiteData: React.Dispatch<React.SetStateAction<Category[]>>,
+	setError: React.Dispatch<React.SetStateAction<string | null>>
+) => {
+	try {
+		const sections = await fetchAndParseFile(
+			`${currentHost}/src/content/sections/default.json`
+		)
+
+		const sectionPromises = sections.map(async (section: Section) => {
+			const categories = await fetchSectionCategories(
+				currentHost,
+				section
+			)
+			return {
+				...section,
+				categories,
+				title: addErrorSuffix(section.title, null),
+			}
+		})
+
+		const siteData = await Promise.all(sectionPromises)
+		setSiteData(siteData)
+	} catch (err) {
+		console.log("Error importing", err)
+		setError("Failed to fetch site data.")
+	}
+}
+
 const addErrorSuffix = (title: string, error: any): string => {
 	return error ? `${title}X` : title
 }
 
-const GetSiteData = async (): Promise<Category[]> => {
+const GetSiteData = (): Promise<Category[]> => {
 	const [siteData, setSiteData] = useState<Category[]>([])
 	const [error, setError] = useState<string | null>(null)
 	const { currentHost } = useContext(SiteContext)
 
 	useEffect(() => {
-		const buildSections = async (url: string) => {
-			try {
-				const secs = await fetchFile(url)
-				if (secs) {
-					const promises = secs.map(async (section: Section) => {
-						const cats = await fetchFile(
-							`${currentHost}/src/content/sections/${section.folder}/default.json`
-						)
-						section.categories = cats ?? []
-						if (cats) {
-							const categoryPromises = cats.map(
-								async (category: Category) => {
-									try {
-										const mods = await fetchFile(
-											`${currentHost}/src/content/sections/${section.folder}/${category.folder}/default.json`
-										)
-										category.modules = mods ?? []
-										return {
-											...category,
-											title: addErrorSuffix(
-												category.title,
-												null
-											),
-										}
-									} catch (error) {
-										console.error(
-											`Error fetching modules for category: ${category.title}`,
-											error
-										)
-										return {
-											...category,
-											title: addErrorSuffix(
-												category.title,
-												error
-											),
-										}
-									}
-								}
-							)
-							section.categories = (
-								await Promise.all(categoryPromises)
-							).filter(
-								(category) => category !== null
-							) as Category[]
-						}
-						return {
-							...section,
-							title: addErrorSuffix(section.title, null),
-						}
-					})
-					const sections = await Promise.all(promises)
-					setSiteData(sections)
-				}
-			} catch (err) {
-				console.log("Error importing", err)
-				setError("Failed to fetch site data.")
-			}
-		}
-
-		buildSections(`${currentHost}/src/content/sections/default.json`)
+		fetchSiteData(currentHost, setSiteData, setError)
 	}, [])
 
 	if (error) {
