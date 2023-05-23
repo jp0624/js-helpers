@@ -32,7 +32,7 @@ const NavCategory = ({ category }: any) => {
 							title: "",
 						})
 					}}
-					to={`cat/${category.folder}`}
+					to={`/${category.folder}`}
 				>
 					{category.title === activeCategory.title && "*"}
 					{category.title}

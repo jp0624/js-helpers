@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { SiteContext } from "../context/SiteContext"
-import GetCategories from "./GetCategories"
+// import GetCategories from "./GetCategories"
+import GetSiteData from "./GetSiteData"
 import getActiveComponent from "./GetComponent"
 
-function DataLoader() {
+const DataLoader = () => {
 	const {
 		activeComponent,
 		params,
@@ -12,15 +13,18 @@ function DataLoader() {
 		setActiveModule,
 		setCategories,
 		setParams,
+		setSiteData,
 	} = useContext(SiteContext)
+
 	async function loadSiteData() {
 		try {
-			const categoriesObject = await GetCategories()
-			setCategories(categoriesObject)
+			const siteData = await GetSiteData()
+			setSiteData(siteData)
+			console.log("Site Data: ", siteData)
 
 			if (!activeComponent.component) {
 				await getActiveComponent(
-					categoriesObject,
+					siteData,
 					params,
 					setActiveComponent,
 					setActiveCategory,

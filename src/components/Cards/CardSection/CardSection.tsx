@@ -2,14 +2,14 @@ import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
 import { NavLink } from "react-router-dom"
 
-const CardModule = ({ module, category }: any) => {
+const CardSection = ({ module, category }: any) => {
 	const { setActiveModule, setActiveCategory, setActiveComponent } =
 		useContext(SiteContext)
 	return (
 		<>
 			<NavLink
 				to={`/${category.folder}/${module.folder}`}
-				className='card card-module'
+				className='card card-section'
 				onClick={() => {
 					setActiveModule(module)
 					setActiveCategory(category)
@@ -26,4 +26,4 @@ const CardModule = ({ module, category }: any) => {
 	)
 }
 
-export default CardModule
+export default CardSection

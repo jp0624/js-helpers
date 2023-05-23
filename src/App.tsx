@@ -1,11 +1,11 @@
-import { Route, Routes } from "react-router-dom"
-import SideNav from "./components/SideNav/SideNav"
-import Content from "./components/structure/Content/Content"
-import { SiteProvider } from "./context/SiteContext"
 import "./App.scss"
+import { Route, Routes } from "react-router-dom"
+import { SiteProvider } from "./context/SiteContext"
 import DataLoader from "./helpers/DataLoader"
 import Header from "./components/structure/Header"
 import Footer from "./components/structure/Footer"
+import SideNav from "./components/SideNav/SideNav"
+import Content from "./components/structure/Content/Content"
 
 function App() {
 	return (
@@ -17,12 +17,9 @@ function App() {
 					<SideNav />
 					<Routes>
 						<Route path='/' element={<Content />} />
+						<Route path='/:categoryName' element={<Content />} />
 						<Route
-							path='/cat/:categoryName'
-							element={<Content />}
-						/>
-						<Route
-							path='/cat/:categoryName/mod/:moduleName'
+							path='/:categoryName/:moduleName'
 							element={<Content />}
 						/>
 						<Route path='*' element={<Content />} />

@@ -1,4 +1,5 @@
-@import url(./styles/_package.scss);
+@use "./styles/_package.scss" as *;
+
 html,
 body,
 #root {
@@ -10,11 +11,11 @@ html {
 		sans-serif;
 }
 body {
-	background-image: linear-gradient(180deg, #fff, #6d6d6d);
+	background-image: linear-gradient(180deg, #3a3a3a, #6d6d6d);
 }
 header,
 footer {
-	background: grey;
+	background: #111;
 }
 header {
 	height: 7.5%;
@@ -22,12 +23,6 @@ header {
 	z-index: 2;
 	display: flex;
 	padding: 0 3rem;
-	--fleck-seed: 35458;
-	--fleck-count: 500;
-	--fleck-size-base: 1px;
-	--fleck-color-1: #262626;
-	background-color: #111;
-	background-image: paint(fleck);
 	border-bottom: 1px solid #676767;
 	border-bottom: 2px solid #999;
 	.main-logo {
@@ -45,22 +40,15 @@ header {
 }
 footer {
 	height: 5%;
-	background: rgb(205, 205, 205);
-	background: linear-gradient(
-		180deg,
-		rgba(205, 205, 205, 1) 0%,
-		rgba(238, 238, 238, 1) 50%,
-		rgba(205, 205, 205, 1) 100%
-	);
 	border-top: 2px solid #999;
 }
 section.main {
 	background: linear-gradient(
 		90deg,
-		rgba(109, 109, 109, 0.5) 0%,
-		rgba(218, 218, 218, 0.5) 25%,
-		rgba(218, 218, 218, 0.5) 75%,
-		rgba(109, 109, 109, 0.5) 100%
+		rgba(48, 48, 48, 0.5) 0%,
+		rgba(109, 109, 109, 0.5) 25%,
+		rgba(109, 109, 109, 0.5) 75%,
+		rgba(48, 48, 48, 0.5) 100%
 	);
 	display: flex;
 	flex-direction: row;

@@ -1,15 +1,15 @@
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
-import CardModule from "../CardModule/CardModule"
+import CardModule from "../../Cards/CardModule/CardModule"
 import { NavLink } from "react-router-dom"
 
-const CardCategory = ({ category }: any) => {
+const PanelSection = ({ category }: any) => {
 	const { setActiveCategory, setActiveComponent, setActiveModule } =
 		useContext(SiteContext)
 	return (
 		<>
-			<div className='card card-category'>
-				<div className='card-body'>
+			<div className='panel panel-section'>
+				<div className='panel-body'>
 					<NavLink
 						to={`/${category.folder}`}
 						className={`card-heading`}
@@ -25,7 +25,7 @@ const CardCategory = ({ category }: any) => {
 							})
 						}}
 					>
-						<h5 className='card-title'>{category.title}</h5>
+						<h5 className='panel-title'>{category.title}</h5>
 					</NavLink>
 				</div>
 				<p>{category.description}</p>
@@ -43,4 +43,4 @@ const CardCategory = ({ category }: any) => {
 	)
 }
 
-export default CardCategory
+export default PanelSection

@@ -15,8 +15,7 @@ const NavModule = ({ module, category }: any) => {
 	return (
 		<>
 			<NavLink
-				className={`
-					${styles.navModule},
+				className={`navModule 
 					${
 						module.title === activeModule.title &&
 						category.title === activeCategory.title
@@ -31,7 +30,7 @@ const NavModule = ({ module, category }: any) => {
 					})
 					setActiveModule(module)
 				}}
-				to={`cat/${category.folder}/mod/${module.folder}`}
+				to={`/${category.folder}/${module.folder}`}
 			>
 				{module.title === activeModule.title &&
 					category.title === activeCategory.title &&

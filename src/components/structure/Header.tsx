@@ -30,7 +30,7 @@ const Header = () => {
 					})
 				}}
 			>
-				JS Helpers
+				Dev Helpers
 			</NavLink>
 		</header>
 	)

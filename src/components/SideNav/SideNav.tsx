@@ -1,18 +1,19 @@
 import { useContext } from "react"
 import { SiteContext } from "../../context/SiteContext"
 import styles from "./styles.module.scss"
-import NavCategory from "./NavCategory/NavCategory"
+import NavSection from "./NavSection/NavSection"
 
 const SideNav = () => {
-	const { categories } = useContext(SiteContext)
-
-	if (categories.length > 0) {
+	const { siteData } = useContext(SiteContext)
+	console.log("SITE DATA: ", siteData)
+	if (siteData.length > 0) {
 		return (
 			<>
 				<aside className={styles.sideNav}>
 					<ul className={styles.sideNav__category}>
-						{categories.map((category: any, index: number) => (
-							<NavCategory category={category} key={index} />
+						{siteData.map((section: any, index: number) => (
+							// <NavCategory category={category} key={index} />
+							<NavSection section={section} key={index} />
 						))}
 					</ul>
 				</aside>

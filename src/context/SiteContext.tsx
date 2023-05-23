@@ -32,12 +32,14 @@ type SiteContextProps = {
 	currentHost: string
 	language: string
 	params: ParamsInterface
+	siteData: any
 	setActiveCategory: (category: any) => void
 	setActiveComponent: (component: any) => void
 	setActiveModule: (module: any) => void
 	setCategories: (categories: any) => void
 	setLanguage: (language: string) => void
 	setParams: (params: any) => void
+	setSiteData: (siteData: any) => void
 }
 
 export const SiteContext = createContext<SiteContextProps>({
@@ -48,12 +50,14 @@ export const SiteContext = createContext<SiteContextProps>({
 	categories: [],
 	language: "",
 	params: {},
+	siteData: [],
 	setActiveCategory: () => {},
 	setActiveComponent: () => {},
 	setActiveModule: () => {},
 	setCategories: () => {},
 	setLanguage: () => {},
 	setParams: () => {},
+	setSiteData: () => {},
 })
 
 type SiteProviderProps = {
@@ -78,6 +82,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 	const [categories, setCategories] = useState([])
 	const [language, setLanguage] = useState("")
 	const [params, setParams] = useState({})
+	const [siteData, setSiteData] = useState([])
 
 	return (
 		<SiteContext.Provider
@@ -89,12 +94,14 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				currentHost,
 				language,
 				params,
+				siteData,
 				setActiveCategory,
 				setActiveComponent,
 				setActiveModule,
 				setCategories,
 				setLanguage,
 				setParams,
+				setSiteData,
 			}}
 		>
 			{children}

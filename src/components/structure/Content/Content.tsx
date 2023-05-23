@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useParams } from "react-router"
 import { SiteContext } from "../../../context/SiteContext"
 import styles from "./styles.module.scss"
@@ -14,6 +14,7 @@ import OPFunctionScope from "../../../content/sections/fundamentals/operators/op
 
 const Content = () => {
 	const { activeComponent, setParams } = useContext(SiteContext)
+	setParams(useParams())
 	const components: any = {
 		//Global
 		HomePage: HomePage,
@@ -26,7 +27,6 @@ const Content = () => {
 		OPBlockScope: OPBlockScope,
 		OPFunctionScope: OPFunctionScope,
 	}
-	setParams(useParams())
 
 	let Component = {
 		title: activeComponent.title || "Home Page",

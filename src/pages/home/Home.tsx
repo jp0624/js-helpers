@@ -8,9 +8,9 @@ const HomePage = () => {
 
 	return (
 		<>
-			{categories.map((category: any, index: number) => (
+			{/* {categories.map((category: any, index: number) => (
 				<CardCategory category={category} key={Math.random()} />
-			))}
+			))} */}
 		</>
 	)
 }

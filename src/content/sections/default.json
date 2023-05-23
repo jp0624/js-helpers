@@ -1,5 +1,36 @@
 [
 	{
-		"TBD": "for when sections are add"
+		"title": "Fundamentals",
+		"type": "JavaScript",
+		"folder": "fundamentals",
+		"keywords": [
+			"operators",
+			"equality",
+			"equal",
+			"unary",
+			"logical",
+			"relational",
+			"conditional",
+			"assignment",
+			"precedence"
+		],
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
+	},
+	{
+		"title": "Testing",
+		"type": "JavaScript",
+		"folder": "fundamentals",
+		"keywords": [
+			"operators",
+			"equality",
+			"equal",
+			"unary",
+			"logical",
+			"relational",
+			"conditional",
+			"assignment",
+			"precedence"
+		],
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
 	}
 ]

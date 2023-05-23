@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import Editor from "@monaco-editor/react"
 import FileImporter from "../../../../../helpers/FileImporter"
 import { SiteContext } from "../../../../../context/SiteContext"
+import AddCode from "../../../../../components/structure/AddCode/AddCode"
 
 function Default() {
 	const { currentHost } = useContext(SiteContext)
@@ -28,12 +28,7 @@ function Default() {
 				Lorem Ipsum.
 			</p>
 			{loadedData.code01 ? (
-				<Editor
-					key='1'
-					height='250px'
-					defaultLanguage='text'
-					defaultValue={loadedData.code01}
-				/>
+				<AddCode data={loadedData.code01} height='300' />
 			) : null}
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -48,12 +43,7 @@ function Default() {
 				Lorem Ipsum.
 			</p>
 			{loadedData.code02 ? (
-				<Editor
-					key='2'
-					height='250px'
-					defaultLanguage='text'
-					defaultValue={loadedData.code02}
-				/>
+				<AddCode data={loadedData.code02} height='300' />
 			) : null}
 		</>
 	)
