@@ -53,7 +53,7 @@ const fetchCategoryModules = async (
 	sectionFolder: string,
 	categoryFolder: string
 ): Promise<Module[]> => {
-	const url = `${currentHost}/src/content/sections/${sectionFolder}/${categoryFolder}/default.json`
+	const url = `${currentHost}/src/_db/sections/${sectionFolder}/${categoryFolder}/default.json`
 	const modules = await fetchAndParseFile(url)
 	return modules ?? []
 }
@@ -63,7 +63,7 @@ const fetchSectionCategories = async (
 	currentHost: string,
 	section: Section
 ): Promise<Category[]> => {
-	const url = `${currentHost}/src/content/sections/${section.folder}/default.json`
+	const url = `${currentHost}/src/_db/sections/${section.folder}/default.json`
 	const categories = await fetchAndParseFile(url)
 
 	if (categories) {
@@ -101,7 +101,7 @@ const fetchSiteData = async (
 ) => {
 	try {
 		const sections = await fetchAndParseFile(
-			`${currentHost}/src/content/sections/default.json`
+			`${currentHost}/src/_db/sections/default.json`
 		)
 
 		const sectionPromises = sections.map(async (section: Section) => {

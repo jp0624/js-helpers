@@ -6,11 +6,19 @@ import styles from "./styles.module.scss"
 // Global Pages
 import HomePage from "../../../pages/home/Home"
 import CategoryPage from "../../../pages/category/Category"
-// Unique Pages
-import BlockScope from "../../../content/sections/fundamentals/functions/block_scope/BlockScope"
-import FunctionScope from "../../../content/sections/fundamentals/functions/function_scope/FunctionScope"
-import OPBlockScope from "../../../content/sections/fundamentals/operators/op_block_scope/BlockScope"
-import OPFunctionScope from "../../../content/sections/fundamentals/operators/op_function_scope/FunctionScope"
+// functions and scope
+import BlockScope from "../../../_db/sections/fundamentals/functions/block_scope/BlockScope"
+import FunctionScope from "../../../_db/sections/fundamentals/functions/function_scope/FunctionScope"
+//operators
+import OPBlockScope from "../../../_db/sections/fundamentals/operators/op_block_scope/BlockScope"
+import OPFunctionScope from "../../../_db/sections/fundamentals/operators/op_function_scope/FunctionScope"
+// ecmascript
+import es5_2009 from "../../../_db/sections/js-documentation/ecmascript/es5_2009/es5_2009"
+import es6_es2015 from "../../../_db/sections/js-documentation/ecmascript/es6_es2015/es6_es2015"
+import es7_es2016 from "../../../_db/sections/js-documentation/ecmascript/es7_es2016/es7_es2016"
+import es8_es2017 from "../../../_db/sections/js-documentation/ecmascript/es8_es2017/es8_es2017"
+import es9_es2018 from "../../../_db/sections/js-documentation/ecmascript/es9_es2018/es9_es2018"
+import es10_es2019 from "../../../_db/sections/js-documentation/ecmascript/es10_es2019/es10_es2019"
 
 const Content = () => {
 	const { activeComponent, setParams } = useContext(SiteContext)
@@ -26,6 +34,13 @@ const Content = () => {
 		//----Operators Category
 		OPBlockScope: OPBlockScope,
 		OPFunctionScope: OPFunctionScope,
+		//--ECMAScript Section
+		es5_2009: es5_2009,
+		es6_es2015: es6_es2015,
+		es7_es2016: es7_es2016,
+		es8_es2017: es8_es2017,
+		es9_es2018: es9_es2018,
+		es10_es2019: es10_es2019,
 	}
 
 	let Component = {

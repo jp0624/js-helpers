@@ -88,6 +88,19 @@ section.main {
 			border-radius: 9999px;
 			background-color: #aaaaaa;
 		}
+		h4 {
+			font-weight: 500;
+		}
+		ul {
+			margin-left: 2rem;
+			li {
+				margin: 1rem 0;
+			}
+			strong {
+				font-weight: 500;
+				color: #2e75b9;
+			}
+		}
 	}
 	.row {
 		display: grid;

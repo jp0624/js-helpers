@@ -23,7 +23,7 @@ const AddCode = ({
 				margin: "0px 0.75rem",
 				borderRadius: "5px",
 				boxShadow: "1px 1px 5px rgba(0,0,0,0.25)",
-				fontSize: "0.75rem",
+				fontSize: "1rem",
 			}}
 		/>
 	)

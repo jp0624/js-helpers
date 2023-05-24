@@ -1,0 +1,19 @@
+[
+	{
+		"title": "ECMAScript (ES)",
+		"type": "JavaScript",
+		"folder": "ecmascript",
+		"keywords": [
+			"operators",
+			"equality",
+			"equal",
+			"unary",
+			"logical",
+			"relational",
+			"conditional",
+			"assignment",
+			"precedence"
+		],
+		"description": "ECMAScript is a standardized scripting language specification used for developing dynamic and interactive web content."
+	}
+]

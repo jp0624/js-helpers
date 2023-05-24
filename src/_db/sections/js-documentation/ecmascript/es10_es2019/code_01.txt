@@ -1,0 +1,10 @@
+try {
+  // Code that may throw an error
+} catch {
+  console.log('An error occurred.');
+}
+
+const nestedArray = [1, [2, [3, [4, 5]]]];
+const flattenedArray = nestedArray.flat(Infinity);
+console.log(flattenedArray);
+// Output: [1, 2

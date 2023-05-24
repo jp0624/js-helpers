@@ -17,9 +17,9 @@
 		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
 	},
 	{
-		"title": "Testing",
+		"title": "Documentation",
 		"type": "JavaScript",
-		"folder": "fundamentals",
+		"folder": "js-documentation",
 		"keywords": [
 			"operators",
 			"equality",
@@ -31,6 +31,6 @@
 			"assignment",
 			"precedence"
 		],
-		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
+		"description": "JavaScript operators are special symbols used to perform various operations on values and variables."
 	}
 ]

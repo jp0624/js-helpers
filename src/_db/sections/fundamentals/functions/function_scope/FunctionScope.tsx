@@ -7,14 +7,15 @@ function Default() {
 	const { currentHost } = useContext(SiteContext)
 	let loadedData: any = {
 		code01: FileImporter(
-			`${currentHost}/src/content/sections/fundamentals/functions/block_scope/code_01.txt`
+			`${currentHost}/src/_db/sections/fundamentals/functions/function_scope/code_01.txt`
 		),
 		code02: FileImporter(
-			`${currentHost}/src/content/sections/fundamentals/functions/block_scope/code_02.txt`
+			`${currentHost}/src/_db/sections/fundamentals/functions/function_scope/code_02.txt`
 		),
 	}
 	return (
 		<>
+			<AddCode data={loadedData.code01} height='300' />
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
@@ -27,9 +28,6 @@ function Default() {
 				publishing software like Aldus PageMaker including versions of
 				Lorem Ipsum.
 			</p>
-			{loadedData.code01 ? (
-				<AddCode data={loadedData.code01} height='300' />
-			) : null}
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
