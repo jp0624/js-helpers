@@ -12,23 +12,21 @@ function Default() {
 	}
 	return (
 		<>
-			<p>
-				<h4>New Features:</h4>
-				<ul>
-					<li>
-						<strong>Strict Mode:</strong> Provides a stricter syntax
-						and error handling. JSON
-					</li>
-					<li>
-						<strong>Support:</strong> Built-in support for parsing
-						and serializing JSON data.
-					</li>
-					<li>
-						<strong>Array Iteration Methods:</strong> forEach(),
-						map(), filter(), etc.
-					</li>
-				</ul>
-			</p>
+			<h4>New Features:</h4>
+			<ul>
+				<li>
+					<strong>Strict Mode:</strong> Provides a stricter syntax and
+					error handling. JSON
+				</li>
+				<li>
+					<strong>Support:</strong> Built-in support for parsing and
+					serializing JSON data.
+				</li>
+				<li>
+					<strong>Array Iteration Methods:</strong> forEach(), map(),
+					filter(), etc.
+				</li>
+			</ul>
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='300' />
 			) : null}

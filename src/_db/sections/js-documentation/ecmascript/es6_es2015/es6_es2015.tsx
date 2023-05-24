@@ -12,35 +12,33 @@ function Default() {
 	}
 	return (
 		<>
-			<p>
-				<h4>New Features:</h4>
-				<ul>
-					<li>
-						<strong>let and const:</strong> Block-scoped variables
-						with let and constant variables with const.
-					</li>
-					<li>
-						<strong>Arrow Functions:</strong> Shorter function
-						syntax with implicit this binding.
-					</li>
-					<li>
-						<strong>Classes:</strong> Simplified syntax for
-						object-oriented programming.
-					</li>
-					<li>
-						<strong>Template Literals:</strong> String interpolation
-						and multiline strings.
-					</li>
-					<li>
-						<strong>Destructuring Assignment:</strong> Easily
-						extract values from objects and arrays.
-					</li>
-					<li>
-						<strong>Default Parameters:</strong> Specifydefault
-						values for function parameters.
-					</li>
-				</ul>
-			</p>
+			<h4>New Features:</h4>
+			<ul>
+				<li>
+					<strong>let and const:</strong> Block-scoped variables with
+					let and constant variables with const.
+				</li>
+				<li>
+					<strong>Arrow Functions:</strong> Shorter function syntax
+					with implicit this binding.
+				</li>
+				<li>
+					<strong>Classes:</strong> Simplified syntax for
+					object-oriented programming.
+				</li>
+				<li>
+					<strong>Template Literals:</strong> String interpolation and
+					multiline strings.
+				</li>
+				<li>
+					<strong>Destructuring Assignment:</strong> Easily extract
+					values from objects and arrays.
+				</li>
+				<li>
+					<strong>Default Parameters:</strong> Specifydefault values
+					for function parameters.
+				</li>
+			</ul>
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='300' />
 			) : null}

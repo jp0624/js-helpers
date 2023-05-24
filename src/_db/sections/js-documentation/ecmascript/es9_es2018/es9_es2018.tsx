@@ -12,20 +12,17 @@ function Default() {
 	}
 	return (
 		<>
-			<p>
-				<h4>New Features:</h4>
-				<ul>
-					<li>
-						<strong>Rest/Spread Properties:</strong> Allows
-						spreading of object properties and gathering them into a
-						new object.
-					</li>
-					<li>
-						<strong>Asynchronous Iteration:</strong> Provides a
-						simpler way to iterate over asynchronous data.
-					</li>
-				</ul>
-			</p>
+			<h4>New Features:</h4>
+			<ul>
+				<li>
+					<strong>Rest/Spread Properties:</strong> Allows spreading of
+					object properties and gathering them into a new object.
+				</li>
+				<li>
+					<strong>Asynchronous Iteration:</strong> Provides a simpler
+					way to iterate over asynchronous data.
+				</li>
+			</ul>
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='300' />
 			) : null}

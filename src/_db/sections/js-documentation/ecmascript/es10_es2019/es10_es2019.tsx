@@ -12,19 +12,17 @@ function Default() {
 	}
 	return (
 		<>
-			<p>
-				<h4>New Features:</h4>
-				<ul>
-					<li>
-						<strong>Optional Catch Binding:</strong> Allows omission
-						of the catch parameter in try-catch blocks.
-					</li>
-					<li>
-						<strong>Array.flat() and Array.flatMap():</strong>{" "}
-						Flatten and manipulate arrays more easily.
-					</li>
-				</ul>
-			</p>
+			<h4>New Features:</h4>
+			<ul>
+				<li>
+					<strong>Optional Catch Binding:</strong> Allows omission of
+					the catch parameter in try-catch blocks.
+				</li>
+				<li>
+					<strong>Array.flat() and Array.flatMap():</strong> Flatten
+					and manipulate arrays more easily.
+				</li>
+			</ul>
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='300' />
 			) : null}

@@ -12,19 +12,17 @@ function Default() {
 	}
 	return (
 		<>
-			<p>
-				<h4>New Features:</h4>
-				<ul>
-					<li>
-						<strong>Async Functions:</strong> Simplifies
-						asynchronous programming with async/await syntax.
-					</li>
-					<li>
-						<strong>Object.entries():</strong> Returns an array of
-						key-value pairs from an object.
-					</li>
-				</ul>
-			</p>
+			<h4>New Features:</h4>
+			<ul>
+				<li>
+					<strong>Async Functions:</strong> Simplifies asynchronous
+					programming with async/await syntax.
+				</li>
+				<li>
+					<strong>Object.entries():</strong> Returns an array of
+					key-value pairs from an object.
+				</li>
+			</ul>
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='300' />
 			) : null}
