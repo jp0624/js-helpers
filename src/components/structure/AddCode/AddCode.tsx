@@ -4,7 +4,7 @@ import copy from "copy-to-clipboard"
 
 const AddCode = ({
 	data = "Content Missing",
-	lang = "text",
+	lang = "javascript",
 	height = "250",
 }: any) => {
 	return (

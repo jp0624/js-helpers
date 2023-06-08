@@ -19,28 +19,42 @@ import es7_es2016 from "../../../_db/sections/js-documentation/ecmascript/es7_es
 import es8_es2017 from "../../../_db/sections/js-documentation/ecmascript/es8_es2017/es8_es2017"
 import es9_es2018 from "../../../_db/sections/js-documentation/ecmascript/es9_es2018/es9_es2018"
 import es10_es2019 from "../../../_db/sections/js-documentation/ecmascript/es10_es2019/es10_es2019"
+// js tests
+import time_conversion from "../../../_db/sections/js-tests/hackerrank/time_conversion/default"
+import plus_minus from "../../../_db/sections/js-tests/hackerrank/plus_minus/default"
+import min_max_sum from "../../../_db/sections/js-tests/hackerrank/min_max_sum/default"
+import sparse_arrays from "../../../_db/sections/js-tests/hackerrank/sparse_arrays/default"
+import fibonacci_sequence from "../../../_db/sections/js-tests/hackerrank/fibonacci_sequence/default"
 
 const Content = () => {
 	const { activeComponent, setParams } = useContext(SiteContext)
 	setParams(useParams())
 	const components: any = {
 		//Global
-		HomePage: HomePage,
-		CategoryPage: CategoryPage,
+		HomePage,
+		CategoryPage,
 		//--Fundamentals Section
 		//----Functions Category
-		BlockScope: BlockScope,
-		FunctionScope: FunctionScope,
+		BlockScope,
+		FunctionScope,
 		//----Operators Category
-		OPBlockScope: OPBlockScope,
-		OPFunctionScope: OPFunctionScope,
-		//--ECMAScript Section
-		es5_2009: es5_2009,
-		es6_es2015: es6_es2015,
-		es7_es2016: es7_es2016,
-		es8_es2017: es8_es2017,
-		es9_es2018: es9_es2018,
-		es10_es2019: es10_es2019,
+		OPBlockScope,
+		OPFunctionScope,
+		//--JS Documentation
+		//----ECMAScript Category
+		es5_2009,
+		es6_es2015,
+		es7_es2016,
+		es8_es2017,
+		es9_es2018,
+		es10_es2019,
+		//--JS Tests
+		//----Hacker Rank
+		time_conversion,
+		plus_minus,
+		min_max_sum,
+		sparse_arrays,
+		fibonacci_sequence,
 	}
 
 	let Component = {

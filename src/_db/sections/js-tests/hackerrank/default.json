@@ -1,0 +1,37 @@
+[
+	{
+		"title": "Plus Minus",
+		"folder": "plus_minus",
+		"component": "plus_minus",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Fibonacci Sequence",
+		"folder": "fibonacci_sequence",
+		"component": "fibonacci_sequence",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Min-Max Sum",
+		"folder": "min_max_sum",
+		"component": "min_max_sum",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Time Conversion",
+		"folder": "time_conversion",
+		"component": "time_conversion",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Sparse Arrays",
+		"folder": "sparse_arrays",
+		"component": "sparse_arrays",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	}
+]

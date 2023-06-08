@@ -1,0 +1,16 @@
+function isInFibonacciSequence(num: number): boolean {
+  let a = 0;
+  let b = 1;
+
+  while (b < num) {
+    const temp = a + b;
+    a = b;
+    b = temp;
+  }
+
+  return b === num;
+}
+
+const number = 8;
+const isInSequence = isInFibonacciSequence(number);
+console.log(isInSequence); // Output: true

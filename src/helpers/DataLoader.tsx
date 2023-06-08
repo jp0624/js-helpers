@@ -11,8 +11,6 @@ const DataLoader = () => {
 		setActiveComponent,
 		setActiveCategory,
 		setActiveModule,
-		setCategories,
-		setParams,
 		setSiteData,
 	} = useContext(SiteContext)
 
@@ -23,7 +21,7 @@ const DataLoader = () => {
 			console.log("Site Data: ", siteData)
 
 			if (!activeComponent.component) {
-				await getActiveComponent(
+				getActiveComponent(
 					siteData,
 					params,
 					setActiveComponent,

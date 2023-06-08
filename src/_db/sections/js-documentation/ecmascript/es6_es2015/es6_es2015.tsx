@@ -40,7 +40,7 @@ function Default() {
 				</li>
 			</ul>
 			{loadedData.code01 ? (
-				<AddCode data={loadedData.code01} height='300' />
+				<AddCode data={loadedData.code01} height='175' />
 			) : null}
 		</>
 	)
