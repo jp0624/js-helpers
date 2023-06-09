@@ -5,7 +5,6 @@ import NavSection from "./NavSection/NavSection"
 
 const SideNav = () => {
 	const { siteData } = useContext(SiteContext)
-	console.log("SITE DATA: ", siteData)
 	if (siteData.length > 0) {
 		return (
 			<>

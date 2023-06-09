@@ -5,5 +5,12 @@
 		"folder": "hackerrank",
 		"keywords": [],
 		"description": "Given a time in 12-hour AM/PM format, convert it to military (24-hour) time."
+	},
+	{
+		"title": "Interview Tests",
+		"type": "JavaScript",
+		"folder": "interview",
+		"keywords": [],
+		"description": "Given a time in 12-hour AM/PM format, convert it to military (24-hour) time."
 	}
 ]

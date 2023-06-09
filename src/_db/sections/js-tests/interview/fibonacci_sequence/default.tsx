@@ -14,6 +14,9 @@ function Default() {
 				Write a function to detect is a number is within the fibonacci
 				sequence
 			</p>
+			<h3>Sample Input</h3>
+
+			<code>24</code>
 
 			{loadedData.code01 ? (
 				<AddCode data={loadedData.code01} height='500' />

@@ -1,0 +1,7 @@
+.section__list {
+	& > a {
+		&.active {
+			color: blue;
+		}
+	}
+}

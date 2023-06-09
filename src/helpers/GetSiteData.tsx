@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { SiteContext } from "../context/SiteContext"
 
 // Interface for a section

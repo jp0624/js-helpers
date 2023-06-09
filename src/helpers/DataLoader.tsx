@@ -18,7 +18,7 @@ const DataLoader = () => {
 		try {
 			const siteData = await GetSiteData()
 			setSiteData(siteData)
-			console.log("Site Data: ", siteData)
+			// console.log("Site Data: ", siteData)
 
 			if (!activeComponent.component) {
 				getActiveComponent(

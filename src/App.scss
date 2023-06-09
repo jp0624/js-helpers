@@ -142,20 +142,5 @@ section.main {
 				border-bottom: 1px solid #ddd;
 			}
 		}
-		&-module {
-			cursor: pointer;
-			padding: 1rem;
-			border: 1px solid #666;
-			background-color: #eee;
-			border-radius: 1rem;
-			transition: all ease-in-out 250ms;
-			h5 {
-				font-size: 1.5rem;
-			}
-			&:hover {
-				background-color: #0d6efd;
-				color: #fff;
-			}
-		}
 	}
 }

@@ -9,6 +9,7 @@ const NavSection = ({ section }: any) => {
 	const {
 		activeCategory,
 		setActiveCategory,
+		setActiveSection,
 		setActiveComponent,
 		setActiveModule,
 	} = useContext(SiteContext)
@@ -17,28 +18,32 @@ const NavSection = ({ section }: any) => {
 		<>
 			<li
 				className={`
-					${styles.category__list}
+					${styles.section__list}
 					${section.title === activeCategory.title ? styles.active : ""}
 					`}
 			>
 				<NavLink
 					onClick={() => {
-						// setActiveCategory(category)
-						// setActiveComponent({
-						// 	title: category.title,
-						// 	component: "CategoryPage",
-						// })
-						// setActiveModule({
-						// 	folder: "",
-						// 	title: "",
-						// })
+						setActiveSection(section)
+						setActiveComponent({
+							title: section.title,
+							component: "CategoryPage",
+						})
+						setActiveCategory({
+							folder: "",
+							title: "",
+						})
+						setActiveModule({
+							folder: "",
+							title: "",
+						})
 					}}
 					to={`/${section.folder}`}
 				>
 					{section.title === activeCategory.title && "*"}
 					{section.title}
 				</NavLink>
-				<h4 className={styles.module__list}>
+				<h4 className={styles.category__list}>
 					{section.categories.map((category: any, index: number) => (
 						<NavCategory category={category} key={index} />
 					))}

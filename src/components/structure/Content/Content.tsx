@@ -6,12 +6,15 @@ import styles from "./styles.module.scss"
 // Global Pages
 import HomePage from "../../../pages/home/Home"
 import CategoryPage from "../../../pages/category/Category"
+
 // functions and scope
 import BlockScope from "../../../_db/sections/fundamentals/functions/block_scope/BlockScope"
 import FunctionScope from "../../../_db/sections/fundamentals/functions/function_scope/FunctionScope"
+
 //operators
 import OPBlockScope from "../../../_db/sections/fundamentals/operators/op_block_scope/BlockScope"
 import OPFunctionScope from "../../../_db/sections/fundamentals/operators/op_function_scope/FunctionScope"
+
 // ecmascript
 import es5_2009 from "../../../_db/sections/js-documentation/ecmascript/es5_2009/es5_2009"
 import es6_es2015 from "../../../_db/sections/js-documentation/ecmascript/es6_es2015/es6_es2015"
@@ -19,12 +22,18 @@ import es7_es2016 from "../../../_db/sections/js-documentation/ecmascript/es7_es
 import es8_es2017 from "../../../_db/sections/js-documentation/ecmascript/es8_es2017/es8_es2017"
 import es9_es2018 from "../../../_db/sections/js-documentation/ecmascript/es9_es2018/es9_es2018"
 import es10_es2019 from "../../../_db/sections/js-documentation/ecmascript/es10_es2019/es10_es2019"
+
 // js tests
 import time_conversion from "../../../_db/sections/js-tests/hackerrank/time_conversion/default"
 import plus_minus from "../../../_db/sections/js-tests/hackerrank/plus_minus/default"
 import min_max_sum from "../../../_db/sections/js-tests/hackerrank/min_max_sum/default"
 import sparse_arrays from "../../../_db/sections/js-tests/hackerrank/sparse_arrays/default"
-import fibonacci_sequence from "../../../_db/sections/js-tests/hackerrank/fibonacci_sequence/default"
+import lonely_integer from "../../../_db/sections/js-tests/hackerrank/lonely_integer/default"
+import flipping_bits from "../../../_db/sections/js-tests/hackerrank/flipping_bits/default"
+import diagonal_difference from "../../../_db/sections/js-tests/hackerrank/diagonal_difference/default"
+
+// interview
+import fibonacci_sequence from "../../../_db/sections/js-tests/interview/fibonacci_sequence/default"
 
 const Content = () => {
 	const { activeComponent, setParams } = useContext(SiteContext)
@@ -34,14 +43,14 @@ const Content = () => {
 		HomePage,
 		CategoryPage,
 		//--Fundamentals Section
-		//----Functions Category
+		////----Functions Category
 		BlockScope,
 		FunctionScope,
-		//----Operators Category
+		////----Operators Category
 		OPBlockScope,
 		OPFunctionScope,
 		//--JS Documentation
-		//----ECMAScript Category
+		////----ECMAScript Category
 		es5_2009,
 		es6_es2015,
 		es7_es2016,
@@ -49,12 +58,16 @@ const Content = () => {
 		es9_es2018,
 		es10_es2019,
 		//--JS Tests
-		//----Hacker Rank
+		////----Interview
+		fibonacci_sequence,
+		////----Hacker Rank
 		time_conversion,
 		plus_minus,
 		min_max_sum,
 		sparse_arrays,
-		fibonacci_sequence,
+		lonely_integer,
+		flipping_bits,
+		diagonal_difference,
 	}
 
 	let Component = {
