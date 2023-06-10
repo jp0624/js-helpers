@@ -1,29 +1,21 @@
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
-import PillModule from "../../Pills/PillModule/PillModule"
+import PillModule from "../PillModule/PillModule"
 import { NavLink } from "react-router-dom"
 import styles from "./styles.module.scss"
 
-const CardCategory = ({ category, section }: any) => {
-	const {
-		setActiveCategory,
-		setActiveComponent,
-		setActiveModule,
-		setActiveSection,
-	} = useContext(SiteContext)
+const PillCategory = ({ category }: any) => {
+	const { setActiveCategory, setActiveComponent, setActiveModule } =
+		useContext(SiteContext)
 	return (
 		<>
-			<div className='card card-category'>
-				<div className='card-body'>
+			<div className={`${styles.pill__container}`}>
+				<div className={`${styles.pill__container__body}`}>
 					<NavLink
 						to={`/${category.folder}`}
-						className={`card-heading`}
+						className={`${styles.pill__container__heading}`}
 						onClick={() => {
 							setActiveCategory(category)
-							setActiveSection({
-								title: section.title,
-								component: "SectionPage",
-							})
 							setActiveComponent({
 								title: category.title,
 								component: "CategoryPage",
@@ -34,14 +26,15 @@ const CardCategory = ({ category, section }: any) => {
 							})
 						}}
 					>
-						<h5 className='card-title'>{category.title}</h5>
+						<h5 className={`${styles.pill__container__title}`}>
+							{category.title}
+						</h5>
 					</NavLink>
 				</div>
 				<p>{category.description}</p>
 				<div className={`${styles.pill__container__modules}`}>
 					{category.modules?.map((module: any, index: number) => (
 						<PillModule
-							section={section}
 							category={category}
 							module={module}
 							key={index}
@@ -53,4 +46,4 @@ const CardCategory = ({ category, section }: any) => {
 	)
 }
 
-export default CardCategory
+export default PillCategory

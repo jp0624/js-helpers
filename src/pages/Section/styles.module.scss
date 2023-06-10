@@ -1,0 +1,13 @@
+.row {
+	border: none;
+	&__section {
+		display: grid;
+		gap: 1rem;
+		&__single {
+			border: none;
+		}
+		&__multi {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

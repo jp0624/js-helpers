@@ -6,6 +6,7 @@ import styles from "./styles.module.scss"
 // Global Pages
 import HomePage from "../../../pages/home/Home"
 import CategoryPage from "../../../pages/category/Category"
+import SectionPage from "../../../pages/Section/Section"
 
 // functions and scope
 import BlockScope from "../../../_db/sections/fundamentals/functions/block_scope/BlockScope"
@@ -42,6 +43,7 @@ const Content = () => {
 		//Global
 		HomePage,
 		CategoryPage,
+		SectionPage,
 		//--Fundamentals Section
 		////----Functions Category
 		BlockScope,
@@ -77,7 +79,9 @@ const Content = () => {
 	let DynamicComponent = components[Component.component]
 	return (
 		<>
-			<article className={`${styles.article}, ${activeComponent.title}`}>
+			<article
+				className={`${styles.page__article} ${activeComponent.component}`}
+			>
 				<h1>{activeComponent.title}</h1>
 				<section>{<DynamicComponent />}</section>
 			</article>

@@ -5,10 +5,13 @@ import GetSiteData from "./GetSiteData"
 import getActiveComponent from "./GetComponent"
 
 const DataLoader = () => {
+	console.log("++++++++++++++++++++++++++++++++++++++++++++++++")
+
 	const {
 		activeComponent,
 		params,
 		setActiveComponent,
+		setActiveSection,
 		setActiveCategory,
 		setActiveModule,
 		setSiteData,
@@ -25,6 +28,7 @@ const DataLoader = () => {
 					siteData,
 					params,
 					setActiveComponent,
+					setActiveSection,
 					setActiveCategory,
 					setActiveModule
 				)

@@ -32,6 +32,6 @@
 			"arrow",
 			"default"
 		],
-		"description": "Functions and scope are essential concepts in JavaScript programming. Each function creates a new scope in JavaScript, and variables declared inside a function are not accessible outside that function's scope [1][2][3]. There are three types of scopes in JavaScript: global scope, function scope, and block scope. Global variables are declared outside of all functions and are accessible anywhere in the program, while local variables are declared inside a function and are only accessible within that function's scope. Block scope is introduced with the let and const keywords and is limited to the code block they are declared in. Understanding functions and scope is crucial in writing efficient and maintainable JavaScript code."
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables. They are essential in writing complex expressions and algorithms in JavaScript programming."
 	}
 ]

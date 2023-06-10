@@ -7,6 +7,7 @@ const CategoryPage = () => {
 
 	return (
 		<>
+			<h2>CAT</h2>
 			<div className='row row-category'>
 				{activeCategory.modules?.map((module: any, index: number) => (
 					<CardModule

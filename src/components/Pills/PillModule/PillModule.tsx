@@ -3,7 +3,7 @@ import { SiteContext } from "../../../context/SiteContext"
 import { NavLink } from "react-router-dom"
 import styles from "./styles.module.scss"
 
-const CardModule = ({ module, category, section }: any) => {
+const PillModule = ({ module, category, section }: any) => {
 	const {
 		setActiveModule,
 		setActiveCategory,
@@ -14,7 +14,7 @@ const CardModule = ({ module, category, section }: any) => {
 		<>
 			<NavLink
 				to={`/${category.folder}/${module.folder}`}
-				className={`${styles.card} ${styles.card__module}`}
+				className={`${styles.pill} ${styles.pill__module}`}
 				onClick={() => {
 					setActiveModule(module)
 					setActiveCategory(category)
@@ -28,11 +28,11 @@ const CardModule = ({ module, category, section }: any) => {
 					})
 				}}
 			>
-				<h5 className='card-title'>{module.title}</h5>
-				<p className='card-text'>{module.title}</p>
+				<h5 className='pill-title'>{module.title}</h5>
+				<p className='pill-text'>{module.title}</p>
 			</NavLink>
 		</>
 	)
 }
 
-export default CardModule
+export default PillModule

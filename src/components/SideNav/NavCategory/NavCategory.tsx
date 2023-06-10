@@ -4,12 +4,13 @@ import { SiteContext } from "../../../context/SiteContext"
 import styles from "./styles.module.scss"
 import { NavLink } from "react-router-dom"
 
-const NavCategory = ({ category }: any) => {
+const NavCategory = ({ category, section }: any) => {
 	const {
 		activeCategory,
 		setActiveCategory,
 		setActiveComponent,
 		setActiveModule,
+		setActiveSection,
 	} = useContext(SiteContext)
 
 	return (
@@ -23,6 +24,10 @@ const NavCategory = ({ category }: any) => {
 				<NavLink
 					onClick={() => {
 						setActiveCategory(category)
+						setActiveSection({
+							title: section.title,
+							component: "SectionPage",
+						})
 						setActiveComponent({
 							title: category.title,
 							component: "CategoryPage",
@@ -40,6 +45,7 @@ const NavCategory = ({ category }: any) => {
 				<ul className={styles.module__list}>
 					{category.modules.map((module: any, index: number) => (
 						<NavModule
+							section={section}
 							module={module}
 							category={category}
 							key={index}

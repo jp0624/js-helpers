@@ -123,6 +123,11 @@ section.main {
 			}
 		}
 	}
+	.logo__monster__group__color {
+		path {
+			fill: blue;
+		}
+	}
 	.row {
 		display: grid;
 		flex-direction: row;

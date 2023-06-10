@@ -1,8 +1,11 @@
-article {
-	h1 {
-		margin-bottom: 0.5rem;
-		font-size: 2rem;
-		border-bottom: 1px solid #666;
-		padding-bottom: 0.25rem;
+.page {
+	&__article {
+		border: none;
+		h1 {
+			margin-bottom: 0.5rem;
+			font-size: 2rem;
+			border-bottom: 1px solid #666;
+			padding-bottom: 0.25rem;
+		}
 	}
 }

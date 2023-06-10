@@ -3,9 +3,10 @@ import { SiteContext } from "../../../context/SiteContext"
 import styles from "./styles.module.scss"
 import { NavLink } from "react-router-dom"
 
-const NavModule = ({ module, category }: any) => {
+const NavModule = ({ module, category, section }: any) => {
 	const {
 		setActiveCategory,
+		setActiveSection,
 		setActiveComponent,
 		setActiveModule,
 		activeModule,
@@ -24,6 +25,10 @@ const NavModule = ({ module, category }: any) => {
 					}`}
 				onClick={() => {
 					setActiveCategory(category)
+					setActiveSection({
+						title: section.title,
+						component: "SectionPage",
+					})
 					setActiveComponent({
 						title: module.title,
 						component: module.component,

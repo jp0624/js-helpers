@@ -1,7 +1,16 @@
 .section__list {
+	margin: 0 0 1rem;
 	& > a {
-		&.active {
-			color: blue;
+		font-size: 1.25rem;
+		text-align: center;
+		width: 100%;
+		display: inline-block;
+		text-decoration: none;
+		transition: all ease-in-out 250ms;
+	}
+	&.active {
+		& > a {
+			color: #ff4713;
 		}
 	}
 }

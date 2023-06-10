@@ -1,27 +1,24 @@
 import { useContext } from "react"
 import { SiteContext } from "../../../context/SiteContext"
+import CardCategory from "../CardCategory/CardCategory"
 import { NavLink } from "react-router-dom"
+import styles from "./styles.module.scss"
 
-const CardSection = ({ module, category }: any) => {
+const CardSection = ({ module, category, section }: any) => {
 	const { setActiveModule, setActiveCategory, setActiveComponent } =
 		useContext(SiteContext)
 	return (
 		<>
-			<NavLink
-				to={`/${category.folder}/${module.folder}`}
-				className='card card-section'
-				onClick={() => {
-					setActiveModule(module)
-					setActiveCategory(category)
-					setActiveComponent({
-						title: module.title,
-						component: module.component,
-					})
-				}}
-			>
-				<h5 className='card-title'>{module.title}</h5>
-				<p className='card-text'>{module.title}</p>
-			</NavLink>
+			<div className={``}>
+				section card
+				{section?.categories.map((category: any, index: number) => (
+					<CardCategory
+						section={section}
+						category={category}
+						key={index}
+					/>
+				))}
+			</div>
 		</>
 	)
 }

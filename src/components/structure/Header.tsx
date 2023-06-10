@@ -8,9 +8,11 @@ const Header = () => {
 		setActiveCategory,
 		setActiveModule,
 		setActiveComponent,
+		setActiveSection,
 	} = useContext(SiteContext)
 	return (
 		<header>
+			<img src='/img/monsters/monster-07-oj.svg' />
 			<NavLink
 				to='/'
 				className={"main-logo"}
@@ -18,6 +20,10 @@ const Header = () => {
 					setActiveComponent({
 						title: "Home Page",
 						component: "HomePage",
+					})
+					setActiveSection({
+						folder: "",
+						title: "",
 					})
 					setActiveCategory({
 						folder: "",

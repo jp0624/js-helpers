@@ -81,6 +81,7 @@ function ComponentFetcher(
 ): Promise<Component> {
 	return new Promise((resolve, reject) => {
 		try {
+			console.log("++++++++++++++++++++++++++++++++++++++++++++++++")
 			const category = findCategory(categories, params.categoryName)
 			if (category) {
 				const module = findModule(category, params.moduleName)
@@ -92,7 +93,7 @@ function ComponentFetcher(
 						setActiveModule
 					)
 					resolve(component)
-				} else {
+				} else if (category) {
 					const component = fetchCategoryComponent(
 						category,
 						setActiveComponent,
@@ -123,6 +124,7 @@ function getActiveComponent(
 ): React.ReactElement {
 	const [fetching, setFetching] = useState(true)
 
+	console.log("++++++++++++++++++++++++++++++++++++++++++++++++2")
 	useEffect(() => {
 		const fetchComponent = async (): Promise<void> => {
 			try {

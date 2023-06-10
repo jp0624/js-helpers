@@ -7,7 +7,7 @@ import NavCategory from "../NavCategory/NavCategory"
 
 const NavSection = ({ section }: any) => {
 	const {
-		activeCategory,
+		activeSection,
 		setActiveCategory,
 		setActiveSection,
 		setActiveComponent,
@@ -19,7 +19,7 @@ const NavSection = ({ section }: any) => {
 			<li
 				className={`
 					${styles.section__list}
-					${section.title === activeCategory.title ? styles.active : ""}
+					${section.title === activeSection.title ? styles.active : ""}
 					`}
 			>
 				<NavLink
@@ -27,7 +27,7 @@ const NavSection = ({ section }: any) => {
 						setActiveSection(section)
 						setActiveComponent({
 							title: section.title,
-							component: "CategoryPage",
+							component: "SectionPage",
 						})
 						setActiveCategory({
 							folder: "",
@@ -40,14 +40,18 @@ const NavSection = ({ section }: any) => {
 					}}
 					to={`/${section.folder}`}
 				>
-					{section.title === activeCategory.title && "*"}
+					{section.title === activeSection.title && "*"}
 					{section.title}
 				</NavLink>
-				<h4 className={styles.category__list}>
+				<ul className={styles.category__list}>
 					{section.categories.map((category: any, index: number) => (
-						<NavCategory category={category} key={index} />
+						<NavCategory
+							category={category}
+							section={section}
+							key={index}
+						/>
 					))}
-				</h4>
+				</ul>
 			</li>
 		</>
 	)

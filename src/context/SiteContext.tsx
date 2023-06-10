@@ -14,7 +14,7 @@ interface ModuleInterface {
 // Interface for a section
 interface SectionInterface {
 	folder: string
-	components?: ModuleInterface[]
+	categories?: CategoryInterface[]
 	title: string
 }
 
@@ -42,6 +42,7 @@ interface ParamsInterface {
 // Props for the SiteContext
 type SiteContextProps = {
 	categories: CategoryInterface[]
+	sections: SectionInterface[]
 	activeCategory: CategoryInterface
 	activeSection: SectionInterface
 	activeComponent: ComponentInterface
@@ -49,12 +50,13 @@ type SiteContextProps = {
 	currentHost: string
 	language: string
 	params: ParamsInterface
-	siteData: any
+	siteData: SectionInterface[]
 	setActiveSection: (section: any) => void
 	setActiveCategory: (category: any) => void
 	setActiveComponent: (component: any) => void
 	setActiveModule: (module: any) => void
 	setCategories: (categories: any) => void
+	setSections: (sections: any) => void
 	setLanguage: (language: string) => void
 	setParams: (params: any) => void
 	setSiteData: (siteData: any) => void
@@ -68,6 +70,7 @@ export const SiteContext = createContext<SiteContextProps>({
 	activeModule: { folder: "", title: "" },
 	currentHost: currentHost,
 	categories: [],
+	sections: [],
 	language: "",
 	params: {},
 	siteData: [],
@@ -76,6 +79,7 @@ export const SiteContext = createContext<SiteContextProps>({
 	setActiveComponent: () => {},
 	setActiveModule: () => {},
 	setCategories: () => {},
+	setSections: () => {},
 	setLanguage: () => {},
 	setParams: () => {},
 	setSiteData: () => {},
@@ -108,6 +112,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 		title: "",
 	})
 	const [categories, setCategories] = useState<CategoryInterface[]>([])
+	const [sections, setSections] = useState<SectionInterface[]>([])
 	const [language, setLanguage] = useState("")
 	const [params, setParams] = useState<ParamsInterface>({})
 	const [siteData, setSiteData] = useState<any>([])
@@ -120,6 +125,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				activeComponent,
 				activeModule,
 				categories,
+				sections,
 				currentHost,
 				language,
 				params,
@@ -129,6 +135,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				setActiveComponent,
 				setActiveModule,
 				setCategories,
+				setSections,
 				setLanguage,
 				setParams,
 				setSiteData,

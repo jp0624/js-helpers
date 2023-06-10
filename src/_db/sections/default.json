@@ -1,8 +1,8 @@
 [
 	{
-		"title": "Fundamentals",
+		"title": "Tests/Solutions",
 		"type": "JavaScript",
-		"folder": "fundamentals",
+		"folder": "js-tests",
 		"keywords": [
 			"operators",
 			"equality",
@@ -14,7 +14,7 @@
 			"assignment",
 			"precedence"
 		],
-		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
+		"description": "JavaScript operators are special symbols used to perform various operations on values and variables."
 	},
 	{
 		"title": "Documentation",
@@ -34,9 +34,9 @@
 		"description": "JavaScript operators are special symbols used to perform various operations on values and variables."
 	},
 	{
-		"title": "Tests/Solutions",
+		"title": "Fundamentals",
 		"type": "JavaScript",
-		"folder": "js-tests",
+		"folder": "fundamentals",
 		"keywords": [
 			"operators",
 			"equality",
@@ -48,6 +48,6 @@
 			"assignment",
 			"precedence"
 		],
-		"description": "JavaScript operators are special symbols used to perform various operations on values and variables."
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables."
 	}
 ]
