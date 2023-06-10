@@ -16,7 +16,7 @@ const NavModule = ({ module, category, section }: any) => {
 	return (
 		<>
 			<NavLink
-				className={`navModule 
+				className={`${styles.navModule} 
 					${
 						module.title === activeModule.title &&
 						category.title === activeCategory.title

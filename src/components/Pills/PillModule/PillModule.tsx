@@ -14,7 +14,9 @@ const PillModule = ({ module, category, section }: any) => {
 		<>
 			<NavLink
 				to={`/${category.folder}/${module.folder}`}
-				className={`${styles.pill} ${styles.pill__module}`}
+				className={`${styles.pill} ${styles.pill__module} ${
+					styles[module.type?.toLowerCase()]
+				}`}
 				onClick={() => {
 					setActiveModule(module)
 					setActiveCategory(category)

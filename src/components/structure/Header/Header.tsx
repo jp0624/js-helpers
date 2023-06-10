@@ -20,7 +20,7 @@ const Header = () => {
 					className={"main-logo"}
 					onClick={() => {
 						setActiveComponent({
-							title: "Home Page",
+							title: "Developer Helpers Guide",
 							component: "HomePage",
 						})
 						setActiveSection({

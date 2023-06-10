@@ -51,6 +51,7 @@ type SiteContextProps = {
 	language: string
 	params: ParamsInterface
 	siteData: SectionInterface[]
+	searchTerms: []
 	setActiveSection: (section: any) => void
 	setActiveCategory: (category: any) => void
 	setActiveComponent: (component: any) => void
@@ -60,6 +61,7 @@ type SiteContextProps = {
 	setLanguage: (language: string) => void
 	setParams: (params: any) => void
 	setSiteData: (siteData: any) => void
+	setSearchTerms: (terms: any) => void
 }
 
 // Create the SiteContext and provide initial values
@@ -74,6 +76,7 @@ export const SiteContext = createContext<SiteContextProps>({
 	language: "",
 	params: {},
 	siteData: [],
+	searchTerms: [],
 	setActiveSection: () => {},
 	setActiveCategory: () => {},
 	setActiveComponent: () => {},
@@ -83,6 +86,7 @@ export const SiteContext = createContext<SiteContextProps>({
 	setLanguage: () => {},
 	setParams: () => {},
 	setSiteData: () => {},
+	setSearchTerms: () => {},
 })
 
 // Props for the SiteProvider component
@@ -112,6 +116,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 		title: "",
 	})
 	const [categories, setCategories] = useState<CategoryInterface[]>([])
+	const [searchTerms, setSearchTerms] = useState<any>([])
 	const [sections, setSections] = useState<SectionInterface[]>([])
 	const [language, setLanguage] = useState("")
 	const [params, setParams] = useState<ParamsInterface>({})
@@ -130,6 +135,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				language,
 				params,
 				siteData,
+				searchTerms,
 				setActiveSection,
 				setActiveCategory,
 				setActiveComponent,
@@ -139,6 +145,7 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 				setLanguage,
 				setParams,
 				setSiteData,
+				setSearchTerms,
 			}}
 		>
 			{children}

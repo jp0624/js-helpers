@@ -1,5 +1,6 @@
 .pill {
 	&__module {
+		position: relative;
 		cursor: pointer;
 		color: #666;
 		text-decoration: none;
@@ -15,6 +16,25 @@
 		&:hover {
 			background-color: #0d6efd;
 			color: #fff;
+		}
+		&.javascript {
+			&::after {
+				content: "JS";
+				text-align: right;
+				color: #323330;
+				font-weight: 500;
+				align-items: end;
+				justify-content: end;
+				position: absolute;
+				height: 2.5rem;
+				width: 2.5rem;
+				background: #f0db4f;
+				display: inline-flex;
+				bottom: 0;
+				right: 0;
+				box-sizing: border-box;
+				padding: 0.25rem;
+			}
 		}
 	}
 }

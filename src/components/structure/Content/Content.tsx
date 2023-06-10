@@ -7,6 +7,7 @@ import styles from "./styles.module.scss"
 import HomePage from "../../../pages/home/Home"
 import CategoryPage from "../../../pages/category/Category"
 import SectionPage from "../../../pages/Section/Section"
+import SearchPage from "../../../pages/search/Search"
 
 // functions and scope
 import BlockScope from "../../../_db/sections/fundamentals/functions/block_scope/BlockScope"
@@ -37,13 +38,15 @@ import diagonal_difference from "../../../_db/sections/js-tests/hackerrank/diago
 import fibonacci_sequence from "../../../_db/sections/js-tests/interview/fibonacci_sequence/default"
 
 const Content = () => {
-	const { activeComponent, setParams } = useContext(SiteContext)
+	const { setActiveComponent, activeComponent, setParams } =
+		useContext(SiteContext)
 	setParams(useParams())
 	const components: any = {
 		//Global
 		HomePage,
 		CategoryPage,
 		SectionPage,
+		SearchPage,
 		//--Fundamentals Section
 		////----Functions Category
 		BlockScope,
@@ -71,7 +74,6 @@ const Content = () => {
 		flipping_bits,
 		diagonal_difference,
 	}
-
 	let Component = {
 		title: activeComponent.title || "Home Page",
 		component: activeComponent.component || "HomePage",
@@ -82,7 +84,11 @@ const Content = () => {
 			<article
 				className={`${styles.page__article} ${activeComponent.component}`}
 			>
-				<h1>{activeComponent.title}</h1>
+				<h1>
+					{!!activeComponent.title
+						? activeComponent.title
+						: "Developer Helpers Guide"}
+				</h1>
 				<section>{<DynamicComponent />}</section>
 			</article>
 		</>

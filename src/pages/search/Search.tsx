@@ -5,14 +5,19 @@ import CardCategory from "../../components/Cards/CardCategory/CardCategory"
 import CardModule from "../../components/Cards/CardModule/CardModule"
 
 const SearchPage = () => {
-	const { siteData, activeSection } = useContext(SiteContext)
+	const { siteData, activeSection, searchTerms, setSearchTerms } =
+		useContext(SiteContext)
 	return (
 		<>
-			{/* <div className={``}>
-				{siteData?.map((section: any, index: number) => (
-					<CardSection section={section} key={index} />
+			<div className={``}>
+				{searchTerms?.map((term: any, index: number) => (
+					// <CardSection section={section} key={index} />
+					<>
+						<span>{term}</span>
+						<br />
+					</>
 				))}
-			</div> */}
+			</div>
 		</>
 	)
 }
