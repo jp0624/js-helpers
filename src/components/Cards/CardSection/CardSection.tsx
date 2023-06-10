@@ -10,7 +10,6 @@ const CardSection = ({ module, category, section }: any) => {
 	return (
 		<>
 			<div className={``}>
-				section card
 				{section?.categories.map((category: any, index: number) => (
 					<CardCategory
 						section={section}

@@ -9,7 +9,6 @@ const SectionPage = () => {
 	const isSingle = activeSection.categories?.length === 1 ? true : false
 	return (
 		<>
-			<h2>SEC</h2>
 			<div
 				className={`${styles.row} ${styles.row__section} ${
 					isSingle

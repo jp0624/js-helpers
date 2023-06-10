@@ -1,16 +1,19 @@
 .section__list {
 	margin: 0 0 1rem;
+	text-align: center;
 	& > a {
-		font-size: 1.25rem;
+		font-size: 1rem;
 		text-align: center;
-		width: 100%;
 		display: inline-block;
 		text-decoration: none;
 		transition: all ease-in-out 250ms;
+		color: #ccc;
+		padding: 0.25rem 1rem;
+		border-radius: 0.25rem 0.25rem 0 0;
 	}
 	&.active {
 		& > a {
-			color: #ff4713;
+			color: #ff643a;
 		}
 	}
 }

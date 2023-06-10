@@ -13,11 +13,11 @@ const CardCategory = ({ category, section }: any) => {
 	} = useContext(SiteContext)
 	return (
 		<>
-			<div className='card card-category'>
-				<div className='card-body'>
+			<div className={`${styles.card__container}`}>
+				<div className={`${styles.card__container__body}`}>
 					<NavLink
-						to={`/${category.folder}`}
-						className={`card-heading`}
+						to={`${category.folder}`}
+						className={`${styles.card__container__body__heading}`}
 						onClick={() => {
 							setActiveCategory(category)
 							setActiveSection({
@@ -34,7 +34,11 @@ const CardCategory = ({ category, section }: any) => {
 							})
 						}}
 					>
-						<h5 className='card-title'>{category.title}</h5>
+						<h5
+							className={`${styles.card__container__body__title}`}
+						>
+							{category.title}
+						</h5>
 					</NavLink>
 				</div>
 				<p>{category.description}</p>

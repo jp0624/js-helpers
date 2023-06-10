@@ -1,9 +1,27 @@
-.pill {
+.card {
 	&__container {
-		&__modules {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 1rem;
+		margin: 2rem 0 2.5rem;
+		&__body {
+			border: none;
+			&__heading {
+				color: #2e75b9;
+				font-size: 1.5rem;
+				text-decoration: none;
+			}
+			&__title {
+				cursor: pointer;
+				padding-bottom: 0.5rem;
+				border-bottom: 1px solid #ddd;
+			}
+		}
+		.pill {
+			&__container {
+				&__modules {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: 1rem;
+				}
+			}
 		}
 	}
 }

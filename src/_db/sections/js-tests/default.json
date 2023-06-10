@@ -1,13 +1,13 @@
 [
 	{
-		"title": "HackerRank Tests",
+		"title": "HackerRank Problems",
 		"type": "JavaScript",
 		"folder": "hackerrank",
 		"keywords": [],
 		"description": "Given a time in 12-hour AM/PM format, convert it to military (24-hour) time."
 	},
 	{
-		"title": "Interview Tests",
+		"title": "Interview Problems",
 		"type": "JavaScript",
 		"folder": "interview",
 		"keywords": [],

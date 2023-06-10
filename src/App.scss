@@ -15,6 +15,7 @@ body {
 }
 header,
 footer {
+	position: relative;
 	background: #111;
 }
 header {
@@ -22,21 +23,10 @@ header {
 	position: relative;
 	z-index: 2;
 	display: flex;
+	flex-direction: row;
 	padding: 0 3rem;
 	border-bottom: 1px solid #676767;
 	border-bottom: 2px solid #999;
-	.main-logo {
-		color: #fff;
-		position: relative;
-		height: 100%;
-		align-items: center;
-		justify-content: center;
-		display: flex;
-		text-decoration: none;
-		font-size: 2rem;
-		font-style: italic;
-		font-weight: 500;
-	}
 }
 footer {
 	height: 5%;
@@ -137,15 +127,5 @@ section.main {
 		padding: 0.5rem;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-	.card {
-		&-category {
-			margin: 1rem 0;
-			.card-title {
-				cursor: pointer;
-				padding-bottom: 0.5rem;
-				border-bottom: 1px solid #ddd;
-			}
-		}
 	}
 }
