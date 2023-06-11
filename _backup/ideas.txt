@@ -1,0 +1,14 @@
+Nuxt JS
+    Server Side Rending (SSR)
+        - Search Engine Optimization
+        - Meta tags
+        - Performce (faster load times)
+        - Pages typically would be empty on initial load
+        - Many crawlers don't support JS
+
+    Pre Rendering
+
+    Code Splitting
+        - Performance(Split javascript into multiple files)
+        - Cheaper for clients
+        - Sepearate js file created for each file based on used components
