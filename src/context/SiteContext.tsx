@@ -7,25 +7,27 @@ export const currentHost = `${window.location.protocol}//${window.location.hostn
 interface ModuleInterface {
 	component?: string
 	folder: string
-	keywords?: string[]
+	keywords: string[]
 	title: string
+	description: string
+	type?: string
 }
 
 // Interface for a section
 interface SectionInterface {
 	folder: string
-	categories?: CategoryInterface[]
+	categories: CategoryInterface[]
 	title: string
 }
 
 // Interface for a category
 interface CategoryInterface {
 	folder: string
-	keywords?: string[]
+	keywords: string[]
 	modules?: ModuleInterface[]
 	title: string
 	type: string
-	description?: string
+	description: string
 }
 
 // Interface for a component
@@ -66,8 +68,14 @@ type SiteContextProps = {
 
 // Create the SiteContext and provide initial values
 export const SiteContext = createContext<SiteContextProps>({
-	activeSection: { folder: "", title: "" },
-	activeCategory: { folder: "", title: "", type: "" },
+	activeSection: { folder: "", title: "", categories: [] },
+	activeCategory: {
+		folder: "",
+		title: "",
+		description: "",
+		type: "",
+		keywords: [],
+	},
 	activeComponent: { component: "", title: "" },
 	activeModule: { folder: "", title: "" },
 	currentHost: currentHost,
@@ -100,11 +108,14 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 	const [activeSection, setActiveSection] = useState<SectionInterface>({
 		folder: "",
 		title: "",
+		categories: [],
 	})
 	const [activeCategory, setActiveCategory] = useState<CategoryInterface>({
 		folder: "",
 		title: "",
 		type: "",
+		description: "",
+		keywords: [],
 	})
 	const [activeComponent, setActiveComponent] = useState<ComponentInterface>({
 		component: "",

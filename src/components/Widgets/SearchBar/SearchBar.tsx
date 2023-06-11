@@ -17,7 +17,7 @@ const SearchBar = () => {
 		let termsArr: string[] = inputValue.split(",")
 		let cleanTerms: string[] = []
 		termsArr.forEach((term: any) => {
-			cleanTerms.push(term.trim().split(" "))
+			cleanTerms.push(term.toLowerCase().trim().split(" "))
 		})
 		setSearchTerms(cleanTerms.flat())
 		setActiveComponent({

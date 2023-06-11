@@ -28,7 +28,7 @@
 		"folder": "es8_es2017",
 		"component": "es8_es2017",
 		"type": "JavaScript",
-		"keywords": ["es5-2009"],
+		"keywords": ["es5-2009", "and"],
 		"description": "ES8 introduced async functions, which simplified asynchronous programming using the async/await syntax. It also included the Object.entries() method for returning an array of key-value pairs from an object."
 	},
 	{
