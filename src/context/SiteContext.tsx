@@ -77,7 +77,7 @@ export const SiteContext = createContext<SiteContextProps>({
 		keywords: [],
 	},
 	activeComponent: { component: "", title: "" },
-	activeModule: { folder: "", title: "" },
+	activeModule: { folder: "", title: "", keywords: [], description: "" },
 	currentHost: currentHost,
 	categories: [],
 	sections: [],
@@ -125,6 +125,8 @@ export const SiteProvider = ({ children }: SiteProviderProps) => {
 		component: "",
 		folder: "",
 		title: "",
+		keywords: [],
+		description: "",
 	})
 	const [categories, setCategories] = useState<CategoryInterface[]>([])
 	const [searchTerms, setSearchTerms] = useState<any>([])
