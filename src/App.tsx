@@ -6,7 +6,7 @@ import Header from "./components/structure/Header/Header"
 import Footer from "./components/structure/Footer/Footer"
 import SideNav from "./components/SideNav/SideNav"
 import Content from "./components/structure/Content/Content"
-import "./__sandbox/sandbox"
+// import "./_sandbox/sandbox"
 
 function App() {
 	return (
