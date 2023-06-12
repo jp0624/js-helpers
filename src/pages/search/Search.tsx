@@ -5,6 +5,7 @@ import CardCategory from "../../components/Cards/CardCategory/CardCategory"
 import CardModule from "../../components/Cards/CardModule/CardModule"
 import PillModule from "../../components/Pills/PillModule/PillModule"
 import styles from "./styles.module.scss"
+import { NavLink } from "react-router-dom"
 
 interface termSearchInterface {
 	title: string
@@ -18,10 +19,12 @@ interface termSearchInterface {
 	category: {
 		title: string
 		folder: string
+		component: string
 	}
 	section: {
 		title: string
 		folder: string
+		component: string
 	}
 }
 
@@ -44,7 +47,15 @@ interface termSearchInterface {
 // }
 
 const SearchPage = () => {
-	const { siteData, searchTerms, setSearchTerms } = useContext(SiteContext)
+	const {
+		siteData,
+		searchTerms,
+		setSearchTerms,
+		setActiveSection,
+		setActiveCategory,
+		setActiveModule,
+		setActiveComponent,
+	} = useContext(SiteContext)
 
 	let results = []
 
@@ -75,10 +86,12 @@ const SearchPage = () => {
 							category: {
 								title: cat.title,
 								folder: cat.folder,
+								component: "CategoryPage",
 							},
 							section: {
 								title: sec.title,
 								folder: sec.folder,
+								component: "SectionPage",
 							},
 						}
 						module.score += findTerm(module)
@@ -113,18 +126,87 @@ const SearchPage = () => {
 	}
 	return (
 		<>
-			<div className={`${styles.pill__container__modules}`}>
-				{results?.map((item: any, index: number) => (
-					<>
-						<PillModule
-							section={item.section}
-							category={item.category}
-							module={item}
-							key={index}
-						/>
-					</>
-				))}
-			</div>
+			<table className={`${styles.results__container}`}>
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Section</th>
+						<th>Category</th>
+						<th>Module</th>
+					</tr>
+				</thead>
+				<tbody>
+					{results?.map((item: any, index: number) => (
+						<>
+							<tr key={index}>
+								<td>{item.type}</td>
+								<td>
+									<NavLink
+										onClick={() => {
+											setActiveCategory({
+												title: "",
+												component: "",
+											})
+											setActiveSection(item.section)
+											setActiveComponent({
+												title: item.section.title,
+												component:
+													item.section.component,
+											})
+											setActiveModule({
+												title: "",
+												component: "",
+											})
+										}}
+										to={`/${item.section.folder}`}
+									>
+										{item.category.title}
+									</NavLink>
+								</td>
+								<td>
+									<NavLink
+										onClick={() => {
+											setActiveCategory(item.category)
+											setActiveSection(item.section)
+											setActiveComponent({
+												title: item.category.title,
+												component:
+													item.category.component,
+											})
+											setActiveModule({
+												title: "",
+												component: "",
+											})
+										}}
+										to={`/${item.category.folder}`}
+									>
+										{item.category.title}
+									</NavLink>
+								</td>
+								<td>
+									<NavLink
+										onClick={() => {
+											setActiveCategory(item.category)
+											setActiveSection(item.section)
+											setActiveComponent({
+												title: item.title,
+												component: item.component,
+											})
+											setActiveModule({
+												title: item.title,
+												component: item.component,
+											})
+										}}
+										to={`/${item.category.folder}/${item.folder}`}
+									>
+										{item.title}
+									</NavLink>
+								</td>
+							</tr>
+						</>
+					))}
+				</tbody>
+			</table>
 		</>
 	)
 }

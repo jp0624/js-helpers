@@ -1,9 +1,39 @@
-.pill {
+.results {
 	&__container {
-		&__modules {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1rem;
+		display: grid;
+		grid-template-columns:
+			minmax(100px, 1fr)
+			minmax(150px, 1fr)
+			minmax(150px, 1fr)
+			minmax(150px, 1fr);
+
+		thead,
+		tbody,
+		tr {
+			display: contents;
+		}
+		thead {
+			color: #666;
+			text-decoration: none;
+		}
+		th {
+			background-color: #eee;
+			padding: 0.5rem;
+			border-bottom: 1px solid #666;
+		}
+		td {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: #808080;
+			text-align: center;
+			a {
+				color: #2e75b9;
+				text-decoration: none;
+			}
+		}
+
+		tr:nth-child(even) td {
+			background-color: #eee;
 		}
 	}
 }
