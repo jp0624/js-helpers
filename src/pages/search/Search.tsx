@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { Component, useContext } from "react"
 import { SiteContext } from "../../context/SiteContext"
 import CardSection from "../../components/Cards/CardSection/CardSection"
 import CardCategory from "../../components/Cards/CardCategory/CardCategory"
@@ -16,11 +16,7 @@ interface termSearchInterface {
 	component: string
 	type: string
 	// modules?: ModuleInterface[]
-	category: {
-		title: string
-		folder: string
-		component: string
-	}
+	category: CategoryInterface
 	section: {
 		title: string
 		folder: string
@@ -29,22 +25,23 @@ interface termSearchInterface {
 }
 
 // Interface for a category
-// interface CategoryInterface {
-// 	folder: string
-// 	keywords: string[]
-// 	modules?: ModuleInterface[]
-// 	title: string
-// 	type: string
-// 	description: string
-// }
-// // Interface for a module
-// interface ModuleInterface {
-// 	component?: string
-// 	folder: string
-// 	keywords: string[]
-// 	title: string
-// 	description: string
-// }
+interface CategoryInterface {
+	folder: string
+	keywords: string[]
+	modules?: ModuleInterface[]
+	component?: string
+	title: string
+	type: string
+	description: string
+}
+// Interface for a module
+interface ModuleInterface {
+	component?: string
+	folder: string
+	keywords: string[]
+	title: string
+	description: string
+}
 
 const SearchPage = () => {
 	const {
@@ -85,8 +82,12 @@ const SearchPage = () => {
 							score: 0,
 							category: {
 								title: cat.title,
-								folder: cat.folder,
+								description: cat.description,
+								keywords: cat.keywords,
 								component: "CategoryPage",
+								folder: cat.folder,
+								type: cat.type || "",
+								modules: [],
 							},
 							section: {
 								title: sec.title,
@@ -96,6 +97,7 @@ const SearchPage = () => {
 						}
 						module.score += findTerm(module)
 						!!module.score && results.push(module)
+						// !!module.score && cat.modules.push(module)
 					}
 				}
 			}
@@ -160,7 +162,7 @@ const SearchPage = () => {
 										}}
 										to={`/${item.section.folder}`}
 									>
-										{item.category.title}
+										{item.section.title}
 									</NavLink>
 								</td>
 								<td>
