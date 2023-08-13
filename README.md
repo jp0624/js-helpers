@@ -1,4 +1,4 @@
-# availability
+# JS Helpers
 
 ## npm install
 
