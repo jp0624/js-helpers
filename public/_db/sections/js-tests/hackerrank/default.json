@@ -1,0 +1,58 @@
+[
+	{
+		"title": "Plus Minus",
+		"folder": "plus_minus",
+		"component": "plus_minus",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Min-Max Sum",
+		"folder": "min_max_sum",
+		"component": "min_max_sum",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Time Conversion",
+		"folder": "time_conversion",
+		"component": "time_conversion",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Sparse Arrays",
+		"folder": "sparse_arrays",
+		"component": "sparse_arrays",
+		"type": "JavaScript",
+		"keywords": ["es5-2009", "and", "and"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Lonely Integer",
+		"folder": "lonely_integer",
+		"component": "lonely_integer",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Flipping 32bits",
+		"folder": "flipping_bits",
+		"component": "flipping_bits",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "Diagonal Difference",
+		"folder": "diagonal_difference",
+		"component": "diagonal_difference",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	}
+]

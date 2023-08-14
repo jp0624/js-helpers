@@ -1,0 +1,15 @@
+function flippingBits(n: number): number {
+    // Write your code here
+    const binaryString = n.toString(2).padStart(32, "0")
+    let flippedArr = []
+
+    for (let num of binaryString) {
+        let flipNum = num === "0" ? "1" : "0"
+        flippedArr.push(flipNum)
+    }
+
+    const flippedBinary = flippedArr.join("")
+    const flippedDecimal = parseInt(flippedBinary, 2).toString()
+
+    return +flippedDecimal
+}

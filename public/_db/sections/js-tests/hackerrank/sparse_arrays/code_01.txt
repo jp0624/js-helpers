@@ -1,0 +1,20 @@
+function matchingStrings(strings: string[], queries: string[]): number[] {
+const frequencyMap: { [key: string]: number } = {};
+
+  for (const str of strings) {
+    if (frequencyMap[str]) {
+      frequencyMap[str]++;
+    } else {
+      frequencyMap[str] = 1;
+    }
+  }
+
+  const results: number[] = [];
+
+  for (const query of queries) {
+    const frequency = frequencyMap[query] || 0;
+    results.push(frequency);
+  }
+
+  return results;
+}

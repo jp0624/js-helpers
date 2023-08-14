@@ -1,0 +1,19 @@
+const person = {
+  name: 'John',
+  age: 30,
+};
+
+const address = {
+  city: 'New York',
+  country: 'USA',
+};
+
+const merged = { ...person, ...address };
+console.log(merged);
+// Output: { name: 'John', age: 30, city: 'New York', country: 'USA' }
+
+async function fetchData() {
+  for await (const data of getAsyncData()) {
+    console.log(data);
+  }
+}

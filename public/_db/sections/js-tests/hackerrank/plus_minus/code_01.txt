@@ -1,0 +1,18 @@
+function plusMinus(arr: number[]): void {
+    // Write your code here
+    let positive = 0
+    let negative = 0
+    let zero = 0
+    arr.forEach(num => {
+        num > 0 && ++positive
+        num < 0 && ++negative
+        num === 0 && ++zero
+    })
+    positive = 1 / (arr.length / positive)
+    console.log(positive.toFixed(6))
+    negative = 1 / (arr.length / negative)
+    console.log(negative.toFixed(6))
+    zero = 1 / (arr.length / zero)
+    console.log(zero.toFixed(6))
+
+}

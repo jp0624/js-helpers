@@ -1,0 +1,37 @@
+[
+	{
+		"title": "Operators",
+		"type": "JavaScript",
+		"folder": "operators",
+		"keywords": [
+			"operators",
+			"equality",
+			"equal",
+			"unary",
+			"logical",
+			"relational",
+			"conditional",
+			"assignment",
+			"precedence"
+		],
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables. They are essential in writing complex expressions and algorithms in JavaScript programming."
+	},
+	{
+		"title": "Functions and Scope",
+		"type": "JavaScript",
+		"folder": "functions",
+		"keywords": [
+			"functions",
+			"scope",
+			"iife's",
+			"closures",
+			"this",
+			"call",
+			"apply",
+			"bind",
+			"arrow",
+			"default"
+		],
+		"description": " JavaScript operators are special symbols used to perform various operations on values and variables. They are essential in writing complex expressions and algorithms in JavaScript programming."
+	}
+]

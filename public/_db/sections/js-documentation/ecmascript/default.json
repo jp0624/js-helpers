@@ -1,0 +1,50 @@
+[
+	{
+		"title": "ES5 (2009)",
+		"folder": "es5_2009",
+		"component": "es5_2009",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES5 introduced significant improvements and standardized many features already widely supported by browsers at the time. It focused on enhancing the language's core capabilities, including strict mode, JSON support, and new array iteration methods."
+	},
+	{
+		"title": "ES6/ES2015",
+		"folder": "es6_es2015",
+		"component": "es6_es2015",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "S6 brought numerous additions and syntax enhancements to JavaScript, making the language more expressive and powerful. It introduced features like block-scoped variables (let and const), arrow functions, classes, template literals, destructuring assignment, and default function parameters."
+	},
+	{
+		"title": "ES7/ES2016",
+		"folder": "es7_es2016",
+		"component": "es7_es2016",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES7 primarily focused on introducing a few new features to the language. It added the Array.includes() method for checking element presence in an array and the exponentiation operator (**) for simpler exponentiation calculations."
+	},
+	{
+		"title": "ES8/ES2017",
+		"folder": "es8_es2017",
+		"component": "es8_es2017",
+		"type": "JavaScript",
+		"keywords": ["es5-2009", "and"],
+		"description": "ES8 introduced async functions, which simplified asynchronous programming using the async/await syntax. It also included the Object.entries() method for returning an array of key-value pairs from an object."
+	},
+	{
+		"title": "ES9/ES2018",
+		"folder": "es9_es2018",
+		"component": "es9_es2018",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES9 introduced rest/spread properties for objects, allowing the spreading of object properties and gathering them into a new object. It also introduced asynchronous iteration, providing a simpler way to iterate over asynchronous data."
+	},
+	{
+		"title": "ES10/ES2019",
+		"folder": "es10_es2019",
+		"component": "es10_es2019",
+		"type": "JavaScript",
+		"keywords": ["es5-2009"],
+		"description": "ES10 brought several smaller improvements to the language. Notable additions include optional catch binding, which allows omission of the catch parameter in try-catch blocks, and the Array.flat() and Array.flatMap() methods for flattening and manipulating arrays more easily."
+	}
+]

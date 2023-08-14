@@ -1,0 +1,19 @@
+function lonelyinteger(a: number[]): number {
+   // Use an object to store the count of each number
+  let nums: { [key: number]: number } = {};
+
+  for (const num of a) {
+    // Increment the count for each number
+    nums[num] = nums[num] ? nums[num] + 1 : 1;
+  }
+
+  for (const num in nums) {
+    if (nums[num] === 1) {
+      // Return the lonely integer
+      return parseInt(num, 10); 
+    }
+  }
+
+  // Return -1 if no lonely integer is found
+  return -1; 
+}
