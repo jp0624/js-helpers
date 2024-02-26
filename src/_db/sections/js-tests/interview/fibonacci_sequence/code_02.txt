@@ -1,0 +1,9 @@
+function valueInFib(num: number): boolean {
+  if(num >= 3) {return valueInFib(num-1) + valueInFib(num-2)}
+  else {
+    return 1
+    }
+}
+
+const number = 24;
+console.log(valueInFib(number)); // Output: 46368
