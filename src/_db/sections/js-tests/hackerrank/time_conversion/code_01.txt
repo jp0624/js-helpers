@@ -10,7 +10,7 @@ function timeConversion(s: string): string {
   }
 
   const hoursString = hours.toString().padStart(2, "0");
-  const formattedTime = `${hoursString}:${timeParts[1]}`;
+		const formattedTime = `${hoursString}:${timeParts[1]}:${timeParts[2]}`
 
   return formattedTime;
 
