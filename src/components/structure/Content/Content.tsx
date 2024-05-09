@@ -13,7 +13,7 @@ import SearchPage from '../../../pages/search/Search'
 import BlockScope from '../../../_db/sections/fundamentals/functions/block_scope/BlockScope'
 import FunctionScope from '../../../_db/sections/fundamentals/functions/function_scope/FunctionScope'
 
-//operators
+// operators
 import OPBlockScope from '../../../_db/sections/fundamentals/operators/op_block_scope/BlockScope'
 import OPFunctionScope from '../../../_db/sections/fundamentals/operators/op_function_scope/FunctionScope'
 
@@ -25,7 +25,7 @@ import es8_es2017 from '../../../_db/sections/js-documentation/ecmascript/es8_es
 import es9_es2018 from '../../../_db/sections/js-documentation/ecmascript/es9_es2018/es9_es2018'
 import es10_es2019 from '../../../_db/sections/js-documentation/ecmascript/es10_es2019/es10_es2019'
 
-// js tests
+// hacker rank js tests
 import time_conversion from '../../../_db/sections/js-tests/hackerrank/time_conversion/default'
 import plus_minus from '../../../_db/sections/js-tests/hackerrank/plus_minus/default'
 import min_max_sum from '../../../_db/sections/js-tests/hackerrank/min_max_sum/default'
@@ -35,7 +35,7 @@ import flipping_bits from '../../../_db/sections/js-tests/hackerrank/flipping_bi
 import diagonal_difference from '../../../_db/sections/js-tests/hackerrank/diagonal_difference/default'
 import counting_sort_1 from '../../../_db/sections/js-tests/hackerrank/counting_sort_1/default'
 
-// interview
+// interview tests
 import fibonacci_sequence from '../../../_db/sections/js-tests/interview/fibonacci_sequence/default'
 
 const Content = () => {
