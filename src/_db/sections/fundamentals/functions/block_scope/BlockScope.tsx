@@ -7,10 +7,10 @@ function Default() {
 	const { currentHost } = useContext(SiteContext)
 	let loadedData: any = {
 		code01: FileImporter(
-			`${currentHost}/src/_db/sections/fundamentals/functions/block_scope/code_01.txt`
+			`${currentHost}/data/sections/fundamentals/functions/block_scope/code_01.txt`
 		),
 		code02: FileImporter(
-			`${currentHost}/src/_db/sections/fundamentals/functions/block_scope/code_02.txt`
+			`${currentHost}/data/sections/fundamentals/functions/block_scope/code_02.txt`
 		),
 	}
 	return (

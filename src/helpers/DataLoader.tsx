@@ -1,43 +1,4 @@
-import { useContext } from "react"
-import { SiteContext } from "../context/SiteContext"
-// import GetCategories from "./GetCategories"
-import GetSiteData from "./GetSiteData"
-import getActiveComponent from "./GetComponent"
-
-const DataLoader = () => {
-	const {
-		activeComponent,
-		params,
-		setActiveComponent,
-		setActiveSection,
-		setActiveCategory,
-		setActiveModule,
-		setSiteData,
-	} = useContext(SiteContext)
-
-	async function loadSiteData() {
-		try {
-			const siteData = await GetSiteData()
-			setSiteData(siteData)
-			// console.log("Site Data: ", siteData)
-
-			if (!activeComponent.component) {
-				getActiveComponent(
-					siteData,
-					params,
-					setActiveComponent,
-					setActiveSection,
-					setActiveCategory
-					// setActiveModule
-				)
-			}
-		} catch (error) {
-			console.error(`Failed to load site data: ${error}`)
-		}
-	}
-	loadSiteData()
-
-	return null
-}
-
-export default DataLoader
+import {useContext,useEffect,useState} from 'react';
+import {SiteContext} from '../context/SiteContext';
+import GetSiteData from './GetSiteData';
+export default function DataLoader(){const {currentHost,siteData,params,setSiteData,setActiveComponent,setActiveSection,setActiveCategory,setActiveModule}=useContext(SiteContext);const [error,setError]=useState('');useEffect(()=>{let stale=false;GetSiteData(currentHost).then(data=>{if(!stale)setSiteData(data)}).catch(()=>{if(!stale)setError('The guide could not load. Refresh to try again.')});return()=>{stale=true}},[currentHost,setSiteData]);useEffect(()=>{if(!siteData.length)return;const section=siteData.find(s=>s.folder===params.sectionName);const category=section?.categories.find(c=>c.folder===params.categoryName);const module=category?.modules?.find(m=>m.folder===params.moduleName);setActiveSection(section??{folder:'',title:'',categories:[]});setActiveCategory(category??{folder:'',title:'',description:'',type:'',keywords:[]});setActiveModule(module??{folder:'',title:'',keywords:[],description:''});setActiveComponent(module?{component:module.component,title:module.title}:category?{component:category.type||'CategoryPage',title:category.title}:section?{component:'SectionPage',title:section.title}:{component:'HomePage',title:'Developer Helpers Guide'})},[siteData,params.sectionName,params.categoryName,params.moduleName,setActiveComponent,setActiveSection,setActiveCategory,setActiveModule]);return error?<p role="alert">{error}</p>:null}

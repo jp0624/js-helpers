@@ -2,7 +2,7 @@ import { createContext, useState, ReactNode } from "react"
 
 // Get the current host URL
 // export const currentHost = `${window.location.protocol}//${window.location.hostname}:5174`
-export const currentHost = "./"
+export const currentHost = window.location.origin
 
 // Interface for a module
 interface ModuleInterface {

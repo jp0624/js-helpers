@@ -7,7 +7,7 @@ function Default() {
 	const { currentHost } = useContext(SiteContext)
 	let loadedData: any = {
 		code01: FileImporter(
-			`${currentHost}/src/_db/sections/js-documentation/ecmascript/es7_es2016/code_01.txt`
+			`${currentHost}/data/sections/js-documentation/ecmascript/es7_es2016/code_01.txt`
 		),
 	}
 	return (

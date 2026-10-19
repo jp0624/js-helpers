@@ -41,7 +41,8 @@ import fibonacci_sequence from '../../../_db/sections/js-tests/interview/fibonac
 const Content = () => {
 	const { setActiveComponent, activeComponent, setParams } =
 		useContext(SiteContext)
-	setParams(useParams())
+	const routeParams=useParams();
+ useEffect(()=>{setParams(routeParams)},[routeParams.sectionName,routeParams.categoryName,routeParams.moduleName,setParams])
 	const components: any = {
 		//Global
 		HomePage,
