@@ -1,8 +1,23 @@
 # JS Helpers
 
-## npm install
+A browsable collection of JavaScript learning examples, organized through JSON content and React components.
 
-## npm run dev
+[Live demo](https://js-helpers.vercel.app/)
 
-vite + react + ts + scss using json files as db
-- (https://js-helpers.vercel.app/)
+## Local development
+
+Run these commands from the repository root:
+
+```sh
+npm install
+npm run dev
+```
+
+Available scripts:
+
+- `npm run build`: `tsc && vite build`.
+- `npm run preview`: `vite preview`.
+
+## Main dependencies
+
+`react`. See `package.json` for the full dependency list and versions.
