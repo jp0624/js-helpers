@@ -1,39 +1,23 @@
-import "./App.scss"
-import { Route, Routes } from "react-router-dom"
-import { SiteProvider } from "./context/SiteContext"
-import DataLoader from "./helpers/DataLoader"
-import Header from "./components/structure/Header/Header"
-import Footer from "./components/structure/Footer/Footer"
-import SideNav from "./components/SideNav/SideNav"
-import Content from "./components/structure/Content/Content"
-// import "./_sandbox/sandbox"
-
-function App() {
-	return (
-		<>
-			<SiteProvider>
-				<DataLoader />
-				<Header />
-				<section className='main'>
-					<SideNav />
-					<Routes>
-						<Route path='/' element={<Content />} />
-						<Route path='/:sectionName' element={<Content />} />
-						<Route
-							path='/:sectionName/:categoryName'
-							element={<Content />}
-						/>
-						<Route
-							path='/:sectionName/:categoryName/:moduleName'
-							element={<Content />}
-						/>
-						<Route path='*' element={<Content />} />
-					</Routes>
-				</section>
-				<Footer />
-			</SiteProvider>
-		</>
-	)
+import {useMemo,useState} from 'react';
+import data from './examples.json';
+import './App.css';
+type Example={id:string;language:string;category:string;title:string;description:string;code:string;output:string;source:string;legacy?:boolean};
+const examples:Example[]=data;
+export default function App(){
+ const [language,setLanguage]=useState('JavaScript'),[category,setCategory]=useState('All categories'),[query,setQuery]=useState(''),[selected,setSelected]=useState('javascript-1'),[dark,setDark]=useState(()=>document.documentElement.dataset.theme!=='light'),[message,setMessage]=useState(''),[onlySaved,setOnlySaved]=useState(false);
+ const [saved,setSaved]=useState<string[]>(()=>{try{const stored=JSON.parse(localStorage.getItem('devhelpers.saved')||'[]');return Array.isArray(stored)?stored:[]}catch{return []}});
+ const categories=['All categories',...new Set(examples.filter(e=>e.language===language).map(e=>e.category))];
+ const filtered=useMemo(()=>examples.filter(e=>e.language===language&&(category==='All categories'||e.category===category)&&(!onlySaved||saved.includes(e.id))&&`${e.title} ${e.category} ${e.code}`.toLowerCase().includes(query.toLowerCase())),[language,category,query,onlySaved,saved]);
+ const active=filtered.find(e=>e.id===selected)||filtered[0];
+ function toggle(){const next=!dark;setDark(next);document.documentElement.dataset.theme=next?'dark':'light';try{localStorage.setItem('devhelpers.theme',next?'dark':'light')}catch{}}
+ function bookmark(id:string){const next=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];setSaved(next);try{localStorage.setItem('devhelpers.saved',JSON.stringify(next))}catch{setMessage('Saved for this visit; browser storage is unavailable.')}}
+ async function copy(){if(!active)return;try{await navigator.clipboard.writeText(active.code);setMessage('Code copied.')}catch{setMessage('Copy is unavailable. Select the code and copy it manually.')}}
+ function download(){if(!active)return;const url=URL.createObjectURL(new Blob([active.code],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download=active.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')+(active.language==='Python'?'.py':active.legacy?'.txt':'.js');a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setMessage('Snippet downloaded.')}
+ return <><header><a className="brand" href="/"><span>⌘</span> dev<span className="brand-light">helpers</span><small>/ 02</small></a><div><a href="#library" className="nav-link">The library</a><a href="https://github.com/jp0624/js-helpers" target="_blank" rel="noreferrer" className="nav-link">Source ↗</a><button onClick={toggle} aria-label={dark?'Switch to light theme':'Switch to dark theme'}>{dark?'☀ Light':'◐ Dark'}</button></div></header>
+ <main><section className="hero"><div><p className="eyebrow">LESS SEARCHING. MORE BUILDING.</p><h1>Good code.<br/><span>Within reach.</span></h1><p className="intro">A practical companion for the work between ideas.<br/>Focused JavaScript and Python examples, ready to understand, adapt and use.</p><div className="stats"><span><strong>100</strong> new JavaScript</span><span><strong>150</strong> Python</span><span><strong>24</strong> original snippets</span></div></div><div className="terminal" aria-label="Example of a JavaScript transformation"><div className="terminal-bar"><i/><i/><i/><span>~/workspace/ideas.js</span></div><pre><span className="comment">// Small helpers. Clear intent.</span>{'\n\n'}<span className="purple">const</span> unique = values =&gt;{'\n'}  [...<span className="purple">new</span> Set(values)];{'\n\n'}<span className="blue">unique</span>([1, 2, 2, 3]);{'\n'}<span className="comment">// → [1, 2, 3]</span></pre><div className="terminal-foot"><span>● JAVASCRIPT + PYTHON</span><span>250 RUNNABLE EXAMPLES</span></div></div></section>
+ <section id="library" className="library"><div className="library-head"><div><p className="eyebrow">01 / THE TOOLKIT</p><h2>Find your next building block.</h2></div><div className="language-tabs" role="group" aria-label="Language">{['JavaScript','Python'].map(lang=><button key={lang} aria-pressed={language===lang} onClick={()=>{setLanguage(lang);setCategory('All categories');setMessage('')}}>{lang==='JavaScript'?'JS':'PY'} <span>{lang}</span></button>)}</div></div>
+ <div className="filters"><label className="search">⌕ <input aria-label="Search examples" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search a concept, function or keyword…"/></label><label className="category-select"><span className="sr-only">Category</span><select aria-label="Category" value={category} onChange={e=>setCategory(e.target.value)}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><button className={onlySaved?'chosen':''} aria-pressed={onlySaved} onClick={()=>setOnlySaved(!onlySaved)}>☆ Saved ({saved.length})</button></div>
+ <div className="workspace"><aside><div className="result-label">{filtered.length} EXAMPLES <span>{language==='Python'?'PYTHON 3.11+':'MODERN JAVASCRIPT'}</span></div><div className="results">{filtered.map(e=><button className={active?.id===e.id?'selected':''} key={e.id} onClick={()=>{setSelected(e.id);setMessage('')}} aria-pressed={active?.id===e.id}><span className="category">{e.category}</span><strong>{e.title}</strong><small>{saved.includes(e.id)?'★ Saved':'View example'} →</small></button>)}{!filtered.length&&<p className="empty">No examples match. Try another term or clear your filters.</p>}</div></aside>
+ <article className="detail">{active?<><div className="detail-head"><div><p className="eyebrow">{active.category}</p><h3>{active.title}</h3></div><button className="save" onClick={()=>bookmark(active.id)} aria-label={saved.includes(active.id)?'Remove saved example':'Save example'} aria-pressed={saved.includes(active.id)}>{saved.includes(active.id)?'★':'☆'}</button></div><p className="description">{active.description}</p><div className="code-toolbar"><span>{active.language==='Python'?'example.py':active.legacy?'original snippet':'example.js'}</span><div><button onClick={copy}>Copy code</button><button onClick={download}>Download ↓</button></div></div><pre className="code" tabIndex={0} aria-label="Example code"><code>{active.code}</code></pre>{active.output&&<div className="output"><p className="eyebrow">OUTPUT</p><pre>{active.output}</pre></div>}<p className="runtime-note">{active.legacy?'Original source preserved; React fragments need their original component context.':active.language==='Python'?'Run with Python 3.11 or later. Standard library only.':'Run as an ES module in Node.js 24. Examples use built-in APIs.'}</p><p role="status" className="feedback">{message}</p></>:<div className="empty"><h3>A fresh search?</h3><p>Clear the search or choose another category.</p><button onClick={()=>{setQuery('');setCategory('All categories');setOnlySaved(false)}}>Reset filters</button></div>}</article></div></section>
+ <footer><span>devhelpers / Built to be useful.</span><span>Original JavaScript Field Guide + 250 new examples.</span><a href="https://github.com/jp0624/js-helpers" target="_blank" rel="noreferrer">View repository ↗</a></footer></main></>
 }
-
-export default App
