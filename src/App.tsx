@@ -4,7 +4,7 @@ import './App.css';
 type Example={id:string;language:string;category:string;title:string;description:string;code:string;output:string;source:string;legacy?:boolean};
 const examples:Example[]=data;
 export default function App(){
- const [language,setLanguage]=useState('JavaScript'),[category,setCategory]=useState('All categories'),[query,setQuery]=useState(''),[selected,setSelected]=useState('javascript-1'),[dark,setDark]=useState(()=>document.documentElement.dataset.theme!=='light'),[message,setMessage]=useState(''),[onlySaved,setOnlySaved]=useState(false);
+ const [language,setLanguage]=useState('JavaScript'),[category,setCategory]=useState('All categories'),[query,setQuery]=useState(''),[selected,setSelected]=useState('javascript-1'),[dark,setDark]=useState(()=>document.documentElement.dataset.theme==='dark'),[message,setMessage]=useState(''),[onlySaved,setOnlySaved]=useState(false);
  const [saved,setSaved]=useState<string[]>(()=>{try{const stored=JSON.parse(localStorage.getItem('devhelpers.saved')||'[]');return Array.isArray(stored)?stored:[]}catch{return []}});
  const categories=['All categories',...new Set(examples.filter(e=>e.language===language).map(e=>e.category))];
  const filtered=useMemo(()=>examples.filter(e=>e.language===language&&(category==='All categories'||e.category===category)&&(!onlySaved||saved.includes(e.id))&&`${e.title} ${e.category} ${e.code}`.toLowerCase().includes(query.toLowerCase())),[language,category,query,onlySaved,saved]);

@@ -5,7 +5,7 @@ A searchable JavaScript and Python reference, evolved from JavaScript Field Guid
 - 100 new JavaScript examples and 150 Python examples across 25 language-specific categories.
 - 24 original snippets preserved in the Original archive category and at their original repository paths.
 - Search, categories, saved examples, copy, downloads and captured outputs.
-- Responsive layout; dark default, persistent light preference.
+- Responsive layout; light default, persistent dark preference.
 
 ## Development
 
